@@ -1,260 +1,651 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyanju Store | Premium Apps & Digital Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Lyanju Store - Premium Apps Official</title>
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --primary-hover: #ff4770;
+            --pink-bg: #fff0f3;
+            --card-bg: #ffffff;
+            --text-main: #4a3e43;
+            --text-sub: #8a737d;
+            --accent-purple: #9d4edd;
+            --shadow-soft: 0 10px 30px rgba(255, 107, 139, 0.12);
+        }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'lyanju-pink': '#ffeef2',
-                        'lyanju-card': '#fff8fa',
-                        'lyanju-purple': '#d81b60',
-                        'lyanju-dark': '#4a2c35',
-                        'lyanju-accent': '#ff6b8b'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    }
-                }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--pink-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.4);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffe3e8;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2b1e23;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            background: linear-gradient(135deg, #ff6b8b, #ff4770);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-sub);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image-card {
+            position: relative;
+            background: linear-gradient(135deg, #ffccd5, #ffb3c1);
+            border-radius: 28px;
+            padding: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .floating-tag {
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            background: white;
+            padding: 10px 18px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        /* Products Grid */
+        .catalog {
+            padding: 40px 8% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2b1e23;
+        }
+
+        .section-header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #ffe3e8;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(255, 107, 139, 0.2);
+        }
+
+        .bestseller-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff4770, #ff6b8b);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(255, 71, 112, 0.3);
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background: #fff0f3;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .product-title h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2b1e23;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-features li i {
+            color: #2ec4b6;
+            font-size: 0.8rem;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .price-tag span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .btn-order {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-order:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Modal Popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 420px;
+            padding: 28px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: popIn 0.25s ease-out;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f5f5f5;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #2b1e23;
+        }
+
+        .modal-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2b1e23;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #ffe3e8;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            outline: none;
+            background: #fff0f3;
+            color: #2b1e23;
+            font-weight: 600;
+        }
+
+        .platform-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .platform-btn {
+            border: 2px solid #eee;
+            border-radius: 14px;
+            padding: 12px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .platform-btn.wa {
+            color: #25D366;
+            border-color: #25D366;
+        }
+
+        .platform-btn.tele {
+            color: #0088cc;
+            border-color: #0088cc;
+        }
+
+        .platform-btn.active.wa {
+            background: #25D366;
+            color: white;
+        }
+
+        .platform-btn.active.tele {
+            background: #0088cc;
+            color: white;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            border-top: 1px solid #ffe3e8;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+
+            .floating-tag {
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
             }
         }
-    </script>
-    <style>
-        body { background-color: #fff0f3; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
-        .badge-glow { box-shadow: 0 0 15px rgba(216, 27, 96, 0.3); }
     </style>
 </head>
-<body class="text-lyanju-dark relative min-h-screen">
+<body>
 
-    <header class="glass-nav sticky top-0 z-50 border-b border-pink-200/60 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-lyanju-purple rounded-2xl flex items-center justify-center text-white font-extrabold text-xl shadow-md">
-                    L
-                </div>
-                <div>
-                    <h1 class="font-extrabold text-xl text-lyanju-purple leading-none">Lyanju Store</h1>
-                    <span class="text-[10px] tracking-wider text-pink-500 font-bold uppercase">PREMIUM APPS OFFICIAL</span>
-                </div>
-            </div>
-
-            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                <a href="#beranda" class="text-lyanju-purple border-b-2 border-lyanju-purple pb-1">Beranda</a>
-                <a href="#katalog" class="text-gray-600 hover:text-lyanju-purple transition">Katalog APK</a>
-                <a href="#keunggulan" class="text-gray-600 hover:text-lyanju-purple transition">Keunggulan</a>
-                <a href="#faq" class="text-gray-600 hover:text-lyanju-purple transition">FAQ</a>
-            </nav>
-
-            <a href="https://wa.me/6285714752930" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-full text-xs flex items-center gap-2 shadow-md transition">
-                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Lyanju
-            </a>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-store"></i></div>
+            Lyanju Store
         </div>
     </header>
 
-    <section id="beranda" class="max-w-6xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-            <div class="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 px-4 py-1.5 rounded-full text-xs font-bold text-lyanju-purple mb-6">
-                <i class="fa-solid fa-store"></i> Selamat Datang di Lyanju Store 🌸
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i> Official Premium App Store
             </div>
-            
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-                Penyedia <span class="text-lyanju-purple">Aplikasi Premium</span> Terlengkap & Murah!
-            </h1>
-            
-            <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
-                Dapatkan akun Canva Pro, CapCut Pro, Spotify, Netflix, YouTube, dan ChatGPT Plus dengan harga super terjangkau, amanah, dan bergaransi penuh!
+            <h1>Nikmati Akses <span>APK Premium</span> Tanpa Batas</h1>
+            <p>
+                Selamat datang di Lyanju Store! Dapatkan aplikasi favoritmu seperti Canva Pro, CapCut, Spotify, dan ChatGPT Plus dengan harga termurah, aman, dan bergaransi penuh.
             </p>
-
-            <div class="bg-white/80 border-l-4 border-lyanju-purple p-4 rounded-r-2xl shadow-sm mb-8 flex gap-4 items-center">
-                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-pink-300">
-                    <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <span class="text-[10px] font-bold tracking-wider text-pink-500 uppercase block">PESAN SAMBUTAN LYANJU 🌸</span>
-                    <p class="text-xs text-gray-700 italic">"Halo semuanya! Saya Lyanju, siap membantu kamu mendapatkan akses APK premium tanpa iklan dengan harga bersahabat. Pilih aplikasimu dan hubungi saya kapan saja ya!"</p>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap gap-4">
-                <a href="#katalog" class="bg-lyanju-purple hover:bg-pink-700 text-white font-bold px-6 py-3 rounded-2xl text-sm flex items-center gap-2 shadow-lg shadow-pink-300 transition">
-                    <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog APK
-                </a>
-                <a href="https://t.me/lyanjuajahh" target="_blank" class="bg-sky-100 hover:bg-sky-200 text-sky-600 font-bold px-6 py-3 rounded-2xl text-sm flex items-center gap-2 transition">
-                    <i class="fa-brands fa-telegram text-base"></i> Telegram Lyanju
-                </a>
-            </div>
         </div>
 
-        <div class="relative flex justify-center">
-            <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-pink-100 max-w-sm w-full">
-                <div class="absolute -top-3 -right-3 bg-lyanju-purple text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-md z-10">
-                    <i class="fa-solid fa-crown text-amber-300"></i> Maskot Yae Miko 🌸
-                </div>
-                
-                <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko" class="rounded-2xl w-full h-80 object-cover">
-                
-                <div class="absolute -bottom-5 -left-5 bg-white p-3 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-cyan-500 text-white rounded-xl flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <div>
-                        <span class="bg-amber-400 text-black text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">BEST SELLER</span>
-                        <h4 class="text-xs font-bold text-gray-800">Canva Pro Premium</h4>
-                        <p class="text-[11px] text-lyanju-purple font-extrabold">Cuma Rp 1.000 <span class="text-[9px] font-normal text-gray-500">/bln</span></p>
-                    </div>
+        <div class="hero-image-wrapper">
+            <div class="hero-image-card">
+                <!-- Foto Karakter Yae Miko -->
+                <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko - Lyanju Store">
+                <div class="floating-tag">
+                    <i class="fa-solid fa-bolt" style="color: #ffb703;"></i> Proses Cepat & Legal
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="katalog" class="max-w-6xl mx-auto px-6 py-12">
-        <div class="text-center max-w-xl mx-auto mb-10">
-            <span class="text-xs font-bold text-lyanju-purple uppercase tracking-widest block mb-1">KATALOG LYANJU STORE</span>
-            <h2 class="text-3xl font-extrabold text-gray-900">Daftar Aplikasi Premium</h2>
-            <p class="text-xs text-gray-500 mt-2">Semua aplikasi resmi, siap pakai, dan harga terjangkau!</p>
-            
-            <div class="mt-6 relative">
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari aplikasi (misl: Canva, CapCut, Spotify, ChatGPT)..." class="w-full bg-white border border-pink-200 rounded-2xl py-3 px-11 text-xs outline-none focus:border-lyanju-purple shadow-sm">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400 text-sm"></i>
-            </div>
+    <!-- Catalog Section -->
+    <section class="catalog">
+        <div class="section-header">
+            <h2>Katalog Aplikasi</h2>
+            <p>Pilih aplikasi impianmu dan pesan langsung dalam beberapa detik</p>
         </div>
 
-        <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="products-grid">
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="canva pro">
+            <!-- Canva Pro (Best Seller) -->
+            <div class="product-card">
+                <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
                 <div>
-                    <span class="absolute top-4 right-4 bg-amber-400 text-black text-[10px] font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                        <i class="fa-solid fa-fire"></i> BEST SELLER
-                    </span>
-                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-palette"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-palette"></i></div>
+                        <div class="product-title">
+                            <h3>Canva Pro</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">Canva Pro</h3>
-                    <p class="text-xs text-gray-500 mb-4">1 Bulan Unlock Pro</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Full Fitur & Element Pro</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Desain Tanpa Batas</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Unlock Semua Template & Elemen</li>
+                        <li><i class="fa-solid fa-check"></i> Export High Quality</li>
+                        <li><i class="fa-solid fa-check"></i> Garansi Full 1 Bulan</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xs text-gray-400 line-through">Rp 15.000</div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 1.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
-                    <button onclick="openOrderModal('Canva Pro', 'Rp 1.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 1.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('Canva Pro', [{'name': '1 Bulan', 'price': 'Rp 1.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="capcut pro">
+            <!-- CapCut Pro (Best Seller) -->
+            <div class="product-card">
+                <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
                 <div>
-                    <span class="absolute top-4 right-4 bg-amber-400 text-black text-[10px] font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                        <i class="fa-solid fa-fire"></i> BEST SELLER
-                    </span>
-                    <div class="w-12 h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-video"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-video"></i></div>
+                        <div class="product-title">
+                            <h3>CapCut Pro</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">CapCut Pro</h3>
-                    <p class="text-xs text-gray-500 mb-4">1 Bulan Unlock Pro</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Export Tanpa Watermark</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Unlock Semua Filter & Efek Pro</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Unlock Efek & Filter Pro</li>
+                        <li><i class="fa-solid fa-check"></i> Export Tanpa Watermark</li>
+                        <li><i class="fa-solid fa-check"></i> Garansi Full 1 Bulan</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xs text-gray-400 line-through">Rp 35.000</div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 21.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
-                    <button onclick="openOrderModal('CapCut Pro', 'Rp 21.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 21.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('CapCut Pro', [{'name': '1 Bulan', 'price': 'Rp 21.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="youtube premium">
+            <!-- Spotify Premium -->
+            <div class="product-card">
                 <div>
-                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-brands fa-youtube"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-brands fa-spotify"></i></div>
+                        <div class="product-title">
+                            <h3>Spotify Premium</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">YouTube Premium</h3>
-                    <p class="text-xs text-gray-500 mb-4">Famplan 1 Bulan</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Tanpa Iklan & Play In Background</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Gratis Akses YouTube Music Pro</li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Bebas Iklan & Skip Bebas</li>
+                        <li><i class="fa-solid fa-check"></i> Download Musik Offline</li>
+                        <li><i class="fa-solid fa-check"></i> Audio Kualitas Tinggi</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 5.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
-                    <button onclick="openOrderModal('YouTube Premium (Famplan)', 'Rp 5.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 18.000 - 20.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('Spotify Premium', [{'name': 'Indplan (1 Bulan)', 'price': 'Rp 20.000'}, {'name': 'Famplan (1 Bulan)', 'price': 'Rp 18.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="spotify premium">
+            <!-- ChatGPT Plus -->
+            <div class="product-card">
                 <div>
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-brands fa-spotify"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="product-title">
+                            <h3>ChatGPT Plus</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">Spotify Premium</h3>
-                    <p class="text-xs text-gray-500 mb-4">Indplan & Famplan</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Indplan (1b): <b>Rp 20.000</b></li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Famplan (1b): <b>Rp 18.000</b></li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Akses Model GPT-4o Tercepat</li>
+                        <li><i class="fa-solid fa-check"></i> Fitur DALL-E 3 & Data Analysis</li>
+                        <li><i class="fa-solid fa-check"></i> Tersedia Private & Sharing</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 18.000 - 20.000</div>
-                    <button onclick="openOrderModal('Spotify Premium', 'Indplan (20k) / Famplan (18k)')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 30.000 - 170.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('ChatGPT Plus', [{'name': 'Sharing (1 Bulan)', 'price': 'Rp 30.000'}, {'name': 'Private (1 Bulan)', 'price': 'Rp 170.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="chatgpt plus">
+            <!-- YouTube Premium -->
+            <div class="product-card">
                 <div>
-                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-robot"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <div class="product-title">
+                            <h3>YouTube Premium</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">ChatGPT Plus</h3>
-                    <p class="text-xs text-gray-500 mb-4">Sharing & Private 1 Bulan</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Sharing (1b): <b>Rp 30.000</b></li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Private (1b): <b>Rp 170.000</b></li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Nonton Video Tanpa Iklan</li>
+                        <li><i class="fa-solid fa-check"></i> Background Playback</li>
+                        <li><i class="fa-solid fa-check"></i> Termasuk YouTube Music</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 30.000 - 170.000</div>
-                    <button onclick="openOrderModal('ChatGPT Plus', 'Sharing (30k) / Private (170k)')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 5.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('YouTube Premium', [{'name': 'Famplan (1 Bulan)', 'price': 'Rp 5.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="netflix">
+            <!-- Netflix -->
+            <div class="product-card">
                 <div>
-                    <div class="w-12 h-12 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-film"></i>
+                    <div class="product-header">
+                        <div class="product-icon"><i class="fa-solid fa-film"></i></div>
+                        <div class="product-title">
+                            <h3>Netflix Premium</h3>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900">Netflix Premium</h3>
-                    <p class="text-xs text-gray-500 mb-4">Sharing 1 Bulan</p>
-                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Kualitas Ultra HD 4K</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    <ul class="product-features">
+                        <li><i class="fa-solid fa-check"></i> Kualitas Ultra HD / 4K</li>
+                        <li><i class="fa-solid fa-check"></i> Support Semua Perangkat</li>
+                        <li><i class="fa-solid fa-check"></i> Garansi Full 1 Bulan</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 30.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
-                    <button onclick="openOrderModal('Netflix Premium (Sharing)', 'Rp 30.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    <div class="price-tag">Rp 30.000 <span>/ 1 Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('Netflix Premium', [{'name': 'Sharing (1 Bulan)', 'price': 'Rp 30.000'}])">
+                        <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
@@ -262,66 +653,106 @@
         </div>
     </section>
 
-    <div id="orderModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-sm w-full p-6 relative shadow-2xl border border-pink-100">
-            <button onclick="closeOrderModal()" class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 font-bold flex items-center justify-center text-sm">
-                ✕
+    <!-- Modal Checkout / Keranjang Order -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-title" id="modalAppName">Nama Aplikasi</div>
+            <div class="modal-subtitle">Lengkapi pilihan pesanan kamu di bawah ini</div>
+
+            <div class="form-group">
+                <label>Pilih Varian Paket:</label>
+                <select class="form-control" id="variantSelect">
+                    <!-- Options injected via JavaScript -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Metode Order / Kirim Ke:</label>
+                <div class="platform-options">
+                    <button type="button" class="platform-btn wa active" id="btnOptWa" onclick="setPlatform('wa')">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button type="button" class="platform-btn tele" id="btnOptTele" onclick="setPlatform('tele')">
+                        <i class="fa-brands fa-telegram"></i> Telegram
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn-checkout" onclick="executeOrder()">
+                Lanjutkan Pemesanan <i class="fa-solid fa-arrow-right"></i>
             </button>
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-pink-100 text-lyanju-purple rounded-2xl mx-auto flex items-center justify-center text-xl font-bold mb-3">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <h3 class="font-extrabold text-lg text-gray-900" id="modalAppName">Detail Order</h3>
-                <p class="text-xs text-lyanju-purple font-extrabold mt-1" id="modalAppPrice">Harga Produk</p>
-            </div>
-
-            <div class="space-y-3">
-                <a id="btnWaLink" href="#" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WhatsApp
-                </a>
-                <a id="btnTeleLink" href="https://t.me/lyanjuajahh" target="_blank" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-telegram text-lg"></i> Pesan via Telegram
-                </a>
-            </div>
         </div>
     </div>
 
-    <footer class="bg-white border-t border-pink-100 py-8 text-center text-xs text-gray-500">
-        <p>© 2026 <b>Lyanju Store</b>. All Rights Reserved. Crafted with 🌸</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript logic -->
     <script>
-        // Modal logic
-        function openOrderModal(appName, appPrice) {
+        let currentAppName = '';
+        let selectedPlatform = 'wa';
+
+        function openOrderModal(appName, variants) {
+            currentAppName = appName;
             document.getElementById('modalAppName').innerText = appName;
-            document.getElementById('modalAppPrice').innerText = appPrice;
             
-            const waPhone = '6285714752930';
-            const waText = encodeURIComponent(`Halo Kak Lyanju, saya mau order APK Premium:\n\n📌 Produk: ${appName}\n💰 Harga: ${appPrice}\n\nMohon diproses ya kak!`);
+            const variantSelect = document.getElementById('variantSelect');
+            variantSelect.innerHTML = '';
             
-            document.getElementById('btnWaLink').href = `https://wa.me/${waPhone}?text=${waText}`;
-            document.getElementById('orderModal').classList.remove('hidden');
-            document.getElementById('orderModal').classList.add('flex');
+            variants.forEach(v => {
+                const opt = document.createElement('option');
+                opt.value = `${v.name} - ${v.price}`;
+                opt.innerText = `${v.name} (${v.price})`;
+                variantSelect.appendChild(opt);
+            });
+
+            setPlatform('wa'); // default option
+            document.getElementById('orderModal').style.display = 'flex';
         }
 
         function closeOrderModal() {
-            document.getElementById('orderModal').classList.remove('flex');
-            document.getElementById('orderModal').classList.add('hidden');
+            document.getElementById('orderModal').style.display = 'none';
         }
 
-        // Search Filter logic
-        function filterProducts() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.querySelectorAll('.product-card');
+        function setPlatform(platform) {
+            selectedPlatform = platform;
+            const btnWa = document.getElementById('btnOptWa');
+            const btnTele = document.getElementById('btnOptTele');
 
-            cards.forEach(card => {
-                let name = card.getAttribute('data-name');
-                if (name.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+            if (platform === 'wa') {
+                btnWa.classList.add('active');
+                btnTele.classList.remove('active');
+            } else {
+                btnTele.classList.add('active');
+                btnWa.classList.remove('active');
+            }
+        }
+
+        function executeOrder() {
+            const selectedVariant = document.getElementById('variantSelect').value;
+            
+            if (selectedPlatform === 'wa') {
+                const phone = '6285714752930';
+                const text = `Halo Lyanju Store, aku mau order *${currentAppName}*\nVarian: ${selectedVariant}`;
+                const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+                window.open(waUrl, '_blank');
+            } else {
+                const teleUrl = `https://t.me/lyanjuajahh`;
+                window.open(teleUrl, '_blank');
+            }
+
+            closeOrderModal();
+        }
+
+        // Close modal when clicking outside of card
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeOrderModal();
+            }
         }
     </script>
 </body>
