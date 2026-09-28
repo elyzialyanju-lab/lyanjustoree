@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyanju Store | APK Premium Murah & Terpercaya</title>
+    <title>Lyanju Store | Premium Digital Apps</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Poppins & Fredoka -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -19,7 +19,6 @@
                         yaepink: '#ffd1dc',
                         yaesoft: '#fff0f3',
                         yaedeep: '#ff85a2',
-                        yaedark: '#e63946',
                         yaepurple: '#9b5de5',
                     },
                     fontFamily: {
@@ -35,31 +34,18 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fff8f9;
-            overflow-x: hidden;
         }
 
-        /* Animasi Melayang (Floating Effect) untuk Yae Miko */
-        @keyframes floatAnime {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1.5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-
         .animate-float {
-            animation: floatAnime 4s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* Animasi Pulsing Glowing */
-        @keyframes glowEffect {
-            0%, 100% { box-shadow: 0 0 15px rgba(255, 133, 162, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(255, 133, 162, 0.8); }
-        }
-
-        .glow-pink {
-            animation: glowEffect 3s infinite;
-        }
-
-        /* Sakura Falling Animation */
+        /* Sakura Animation */
         .sakura-container {
             position: fixed;
             top: 0;
@@ -70,7 +56,6 @@
             z-index: 50;
             overflow: hidden;
         }
-
         .sakura {
             position: absolute;
             background: linear-gradient(135deg, #ffb7c5, #ffe3e8);
@@ -78,29 +63,22 @@
             opacity: 0.7;
             animation: fall linear infinite;
         }
-
         @keyframes fall {
-            0% {
-                top: -10%;
-                transform: translateX(0) rotate(0deg);
-            }
-            100% {
-                top: 110%;
-                transform: translateX(100px) rotate(360deg);
-            }
+            0% { top: -10%; transform: translateX(0) rotate(0deg); }
+            100% { top: 110%; transform: translateX(100px) rotate(360deg); }
         }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Animasi Sakura Gugur -->
+    <!-- Sakura Petals -->
     <div class="sakura-container" id="sakuraContainer"></div>
 
     <!-- NAVBAR -->
     <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-yaepink/40 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3">
-                <img src="https://i.pinimg.com/564x/07/7e/02/077e025170d10d19f2a0884d59a8c2f1.jpg" alt="Yae Miko Chibi" class="w-10 h-10 rounded-full border-2 border-yaedeep shadow-sm object-cover">
+                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Lyanju Store Logo" class="w-10 h-10 rounded-full border-2 border-yaedeep object-cover shadow-sm">
                 <span class="font-fredoka text-2xl font-bold bg-gradient-to-r from-yaedeep to-yaepurple bg-clip-text text-transparent">
                     Lyanju Store 🌸
                 </span>
@@ -120,7 +98,7 @@
     <section class="relative overflow-hidden pt-8 pb-16 bg-gradient-to-b from-yaesoft via-pink-50 to-white">
         <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             
-            <!-- Teks Hero -->
+            <!-- Hero Text -->
             <div class="z-10 text-center md:text-left space-y-4">
                 <div class="inline-flex items-center gap-2 bg-pink-100 border border-yaepink text-yaedeep px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold shadow-sm">
                     <i class="fa-solid fa-bolt text-yellow-500"></i> Tempat Langganan APK Premium Termurah!
@@ -132,7 +110,7 @@
                     Halo dari Admin <b>Lyanju</b>! Sedia Netflix, Canva, Spotify, CapCut, dan ChatGPT Plus murah, aman, legal, dan bergaransi penuh.
                 </p>
 
-                <!-- Box Ucapan Yae Miko -->
+                <!-- Box Ucapan -->
                 <div class="p-4 bg-white/90 border-l-4 border-yaedeep rounded-r-2xl shadow-sm text-xs md:text-sm text-gray-700 space-y-1">
                     <p class="font-bold text-yaedeep flex items-center gap-2">
                         <i class="fa-solid fa-sparkles"></i> Pesan Sambutan Lyanju Store:
@@ -150,14 +128,11 @@
                 </div>
             </div>
 
-            <!-- Gambar Yae Miko Bergerak -->
+            <!-- Hero Image (Yae Chibi Motion) -->
             <div class="relative flex justify-center items-center">
-                <!-- Background Glowing Circle -->
                 <div class="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-yaepink to-purple-200 rounded-full filter blur-2xl opacity-60"></div>
-                
-                <!-- Gambar Yae Chibi Beranimasi -->
                 <div class="relative z-10 text-center">
-                    <img src="https://i.pinimg.com/564x/07/7e/02/077e025170d10d19f2a0884d59a8c2f1.jpg" alt="Yae Miko Lyanju Store" class="w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-4 border-white animate-float glow-pink object-cover">
+                    <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Yae Miko Chibi" class="w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-4 border-white animate-float object-cover">
                     <div class="mt-3 inline-block bg-white/90 px-4 py-1.5 rounded-full shadow-md text-xs font-bold text-yaedeep border border-yaepink">
                         ✨ Maskot Resmi Lyanju Store ✨
                     </div>
@@ -167,10 +142,10 @@
         </div>
     </section>
 
-    <!-- BANNER VISUAL YAE MIKO -->
+    <!-- BANNER VISUAL SECTION -->
     <section class="max-w-6xl mx-auto px-4 my-8">
         <div class="relative rounded-3xl overflow-hidden shadow-xl border-2 border-yaepink">
-            <img src="https://i.pinimg.com/564x/4b/32/38/4b32386121f64985287f34c673ebf1f8.jpg" alt="Yae Miko Banner Aesthetic" class="w-full h-48 md:h-64 object-cover object-center">
+            <img src="https://i.ibb.co/MfZ0fpt/1641273.jpg" alt="Yae Miko Banner" class="w-full h-48 md:h-64 object-cover object-center">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
                 <div class="text-white">
                     <h3 class="font-fredoka text-xl md:text-2xl font-bold">Lyanju Store Premium Digital Hub 🦊🌸</h3>
@@ -188,7 +163,7 @@
             </h2>
             <p class="text-gray-500 text-sm mt-1">Pilih paket langganan aplikasi favoritmu dengan harga terbaik!</p>
             
-            <!-- Filter Categories -->
+            <!-- Category Filter -->
             <div class="flex flex-wrap justify-center gap-2 mt-6">
                 <button onclick="filterCategory('all')" class="cat-btn active bg-yaedeep text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm hover:opacity-90 transition">Semua</button>
                 <button onclick="filterCategory('bestseller')" class="cat-btn bg-pink-100 text-yaedeep px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-yaepink transition">🔥 Best Seller</button>
@@ -198,10 +173,10 @@
             </div>
         </div>
 
-        <!-- GRID PRODUK -->
+        <!-- PRODUCT GRID -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productGrid">
             
-            <!-- 1. CANVA PREMIUM (BEST SELLER) -->
+            <!-- Canva Premium -->
             <div class="product-card bestseller design bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5 relative">
                     <span class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">BEST SELLER 🔥</span>
@@ -221,7 +196,7 @@
                 </div>
             </div>
 
-            <!-- 2. CAPCUT PRO (BEST SELLER) -->
+            <!-- CapCut Pro -->
             <div class="product-card bestseller design bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5 relative">
                     <span class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">BEST SELLER 🔥</span>
@@ -241,7 +216,7 @@
                 </div>
             </div>
 
-            <!-- 3. YOUTUBE PREMIUM (FAMPLAN) -->
+            <!-- YouTube Premium -->
             <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -260,7 +235,7 @@
                 </div>
             </div>
 
-            <!-- 4. SPOTIFY INDPLAN -->
+            <!-- Spotify Indplan -->
             <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -279,7 +254,7 @@
                 </div>
             </div>
 
-            <!-- 5. SPOTIFY FAMPLAN -->
+            <!-- Spotify Famplan -->
             <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -298,7 +273,7 @@
                 </div>
             </div>
 
-            <!-- 6. CHATGPT+ SHARING -->
+            <!-- ChatGPT+ Sharing -->
             <div class="product-card ai bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -317,7 +292,7 @@
                 </div>
             </div>
 
-            <!-- 7. CHATGPT+ PRIVATE -->
+            <!-- ChatGPT+ Private -->
             <div class="product-card ai bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -336,7 +311,7 @@
                 </div>
             </div>
 
-            <!-- 8. NETFLIX SHARING -->
+            <!-- Netflix Sharing -->
             <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
                 <div class="p-5">
                     <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mb-3">
@@ -358,13 +333,12 @@
         </div>
     </section>
 
-    <!-- METODE PEMBAYARAN & KEUNGGULAN -->
+    <!-- KEUNGGULAN SECTION -->
     <section id="keunggulan" class="bg-pink-50 py-12 border-y border-yaepink">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-8">
                 <h2 class="font-fredoka text-3xl font-bold text-gray-800">Kenapa Harus <span class="text-yaedeep">Lyanju Store</span>?</h2>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-pink-100 text-center">
                     <div class="w-14 h-14 bg-pink-100 text-yaedeep rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
@@ -412,7 +386,7 @@
     <footer class="bg-white border-t border-yaepink py-8">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <div class="flex justify-center items-center gap-3">
-                <img src="https://i.pinimg.com/564x/07/7e/02/077e025170d10d19f2a0884d59a8c2f1.jpg" alt="Yae Miko Footer" class="w-8 h-8 rounded-full border border-yaedeep object-cover">
+                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Footer Logo" class="w-8 h-8 rounded-full border border-yaedeep object-cover">
                 <span class="font-fredoka text-xl font-bold text-yaedeep">Lyanju Store</span>
             </div>
             <p class="text-xs text-gray-500">Toko APK Premium Terpercaya & Murah. Powered by Yae Miko Aesthetic Theme 🌸</p>
@@ -424,17 +398,15 @@
         </div>
     </footer>
 
-    <!-- MODAL POPUP PEMESANAN -->
+    <!-- MODAL ORDER POPUP -->
     <div id="orderModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border-2 border-yaepink relative transform transition-all">
             <button onclick="closeOrder()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 font-bold text-lg">&times;</button>
-            
             <div class="text-center mb-4">
-                <img src="https://i.pinimg.com/564x/07/7e/02/077e025170d10d19f2a0884d59a8c2f1.jpg" alt="Yae Miko" class="w-16 h-16 rounded-full border-2 border-yaedeep mx-auto mb-2 animate-bounce object-cover">
+                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Yae Miko" class="w-16 h-16 rounded-full border-2 border-yaedeep mx-auto mb-2 animate-bounce object-cover">
                 <h3 class="font-fredoka text-xl font-bold text-gray-800">Form Pemesanan 🌸</h3>
                 <p class="text-xs text-gray-500">Lyanju Store - APK Premium</p>
             </div>
-
             <div class="space-y-3 bg-pink-50 p-4 rounded-xl border border-pink-100 text-xs">
                 <div class="flex justify-between">
                     <span class="text-gray-500">Produk:</span>
@@ -445,7 +417,6 @@
                     <span id="modalPrice" class="font-bold text-yaedeep"></span>
                 </div>
             </div>
-
             <div class="mt-4 space-y-2">
                 <label class="text-xs font-semibold text-gray-700">Pilih Platform Pemesanan:</label>
                 <a id="btnWA" href="#" target="_blank" class="w-full bg-green-500 text-white font-fredoka py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow hover:bg-green-600 transition">
@@ -460,7 +431,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Sakura Generator
+        // Sakura Animation
         const sakuraContainer = document.getElementById('sakuraContainer');
         for (let i = 0; i < 20; i++) {
             const sakura = document.createElement('div');
@@ -476,10 +447,8 @@
         function filterCategory(cat) {
             const cards = document.querySelectorAll('.product-card');
             const btns = document.querySelectorAll('.cat-btn');
-
             btns.forEach(btn => btn.classList.remove('bg-yaedeep', 'text-white'));
             event.target.classList.add('bg-yaedeep', 'text-white');
-
             cards.forEach(card => {
                 if (cat === 'all' || card.classList.contains(cat)) {
                     card.style.display = 'flex';
@@ -489,16 +458,13 @@
             });
         }
 
-        // Modal Order System
+        // Modal Order
         function openOrder(product, price) {
             document.getElementById('modalProduct').innerText = product;
             document.getElementById('modalPrice').innerText = price;
-
             const message = encodeURIComponent(`Halo Admin Lyanju Store! 🌸\nSaya mau beli APK Premium:\n- Produk: ${product}\n- Harga: ${price}\n\nBisa minta detail pembayarannya? Terima kasih!`);
-            
             document.getElementById('btnWA').href = `https://wa.me/6285714752930?text=${message}`;
             document.getElementById('btnTele').href = `https://t.me/lyanjuajahh`;
-
             document.getElementById('orderModal').classList.remove('hidden');
         }
 
