@@ -17,7 +17,6 @@
             --text-main: #3d3438;
             --text-sub: #8a7880;
             --accent-purple: #c77dff;
-            --accent-purple-light: #f3e8ff;
             --shadow-soft: 0 12px 32px rgba(255, 117, 140, 0.08);
             --shadow-hover: 0 20px 40px rgba(255, 117, 140, 0.18);
         }
@@ -40,7 +39,7 @@
 
         /* Navbar */
         header {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             padding: 16px 8%;
@@ -61,7 +60,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            letter-spacing: -0.3px;
         }
 
         .logo-icon {
@@ -82,14 +80,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 70px 8% 50px;
+            padding: 60px 8% 40px;
             max-width: 1200px;
             margin: 0 auto;
-            gap: 50px;
+            gap: 40px;
         }
 
         .hero-text {
-            flex: 1;
+            flex: 1.2;
         }
 
         .hero-badge {
@@ -108,12 +106,11 @@
         }
 
         .hero-text h1 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: #2b1e23;
             line-height: 1.25;
             margin-bottom: 18px;
-            letter-spacing: -0.5px;
         }
 
         .hero-text h1 span {
@@ -124,182 +121,178 @@
 
         .hero-text p {
             color: var(--text-sub);
-            font-size: 1.05rem;
-            line-height: 1.75;
+            font-size: 1rem;
+            line-height: 1.7;
             margin-bottom: 30px;
         }
 
+        /* Fixed Hero Image Area */
         .hero-image-wrapper {
-            flex: 1;
+            flex: 0.8;
             display: flex;
             justify-content: center;
             position: relative;
+            padding-bottom: 20px;
         }
 
         .hero-image-card {
             position: relative;
             background: linear-gradient(135deg, #ffccd5 0%, #f3e8ff 100%);
-            border-radius: 32px;
-            padding: 12px;
+            border-radius: 28px;
+            padding: 10px;
             box-shadow: var(--shadow-hover);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s ease;
+            width: 100%;
+            max-width: 280px;
         }
 
         .hero-image-card:hover {
-            transform: translateY(-5px) rotate(1deg);
+            transform: translateY(-5px);
         }
 
         .hero-image-card img {
             width: 100%;
-            max-width: 320px;
-            border-radius: 24px;
-            display: block;
+            height: 320px;
             object-fit: cover;
+            border-radius: 20px;
+            display: block;
         }
 
         .floating-tag {
             position: absolute;
-            bottom: -15px;
-            left: -15px;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
-            padding: 12px 20px;
+            padding: 10px 18px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #333;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            z-index: 2;
         }
 
         /* Products Grid */
         .catalog {
-            padding: 50px 8% 90px;
+            padding: 40px 8% 80px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #2b1e23;
-            letter-spacing: -0.5px;
         }
 
         .section-header p {
             color: var(--text-sub);
-            font-size: 1rem;
-            margin-top: 8px;
+            font-size: 0.95rem;
+            margin-top: 6px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 26px;
-            padding: 28px;
+            border-radius: 24px;
+            padding: 24px;
             box-shadow: var(--shadow-soft);
             border: 1px solid rgba(255, 227, 232, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(255, 117, 140, 0.3);
         }
 
         .bestseller-badge {
             position: absolute;
-            top: -12px;
-            right: 22px;
+            top: -10px;
+            right: 20px;
             background: linear-gradient(135deg, #ff4d6d, #ff758c);
             color: white;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 800;
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.35);
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
         }
 
         .product-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 22px;
+            gap: 14px;
+            margin-bottom: 18px;
         }
 
         .product-icon {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #fff0f3, #f3e8ff);
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.5rem;
-            box-shadow: inset 0 0 0 1px rgba(255, 117, 140, 0.15);
+            font-size: 1.3rem;
         }
 
         .product-title h3 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
             color: #2b1e23;
         }
 
         .product-features {
             list-style: none;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .product-features li {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-sub);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            line-height: 1.4;
+            gap: 8px;
         }
 
         .product-features li i {
             color: #2ec4b6;
-            font-size: 0.85rem;
-            background: rgba(46, 196, 182, 0.12);
-            padding: 4px;
-            border-radius: 50%;
+            font-size: 0.8rem;
         }
 
         .price-tag {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 18px;
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
+            margin-bottom: 16px;
         }
 
         .price-tag span {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--text-sub);
         }
@@ -309,34 +302,33 @@
             background: linear-gradient(135deg, #ff758c, #ff4d6d);
             color: white;
             border: none;
-            padding: 14px;
-            border-radius: 16px;
+            padding: 12px;
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+            box-shadow: 0 6px 16px rgba(255, 117, 140, 0.25);
             transition: all 0.25s ease;
-            box-shadow: 0 6px 18px rgba(255, 117, 140, 0.25);
         }
 
         .btn-order:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(255, 77, 109, 0.38);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.35);
         }
 
-        /* Modal Popup */
+        /* Modal Overlay */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(43, 30, 35, 0.45);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(43, 30, 35, 0.5);
+            backdrop-filter: blur(6px);
             display: none;
             align-items: center;
             justify-content: center;
@@ -346,132 +338,90 @@
 
         .modal-card {
             background: white;
-            border-radius: 28px;
+            border-radius: 24px;
             width: 100%;
-            max-width: 420px;
-            padding: 32px;
+            max-width: 400px;
+            padding: 28px;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
-            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.88); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .modal-close {
             position: absolute;
-            top: 22px;
-            right: 22px;
+            top: 20px;
+            right: 20px;
             background: #f7f5f6;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             cursor: pointer;
             color: var(--text-sub);
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-close:hover {
-            background: #ffe3e8;
-            color: var(--primary);
         }
 
         .modal-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            margin-bottom: 6px;
-            color: #2b1e23;
+            margin-bottom: 4px;
         }
 
         .modal-subtitle {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-sub);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: #2b1e23;
+            margin-bottom: 8px;
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border: 1.5px solid #ffe3e8;
-            border-radius: 16px;
-            font-size: 0.92rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
             outline: none;
             background: #fff8f9;
-            color: #2b1e23;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(255, 117, 140, 0.12);
         }
 
         .platform-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
         }
 
         .platform-btn {
             border: 2px solid #f0e6e8;
-            border-radius: 16px;
-            padding: 14px;
+            border-radius: 14px;
+            padding: 12px;
             background: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.25s ease;
+            font-size: 0.85rem;
         }
 
-        .platform-btn.wa {
-            color: #25D366;
-            border-color: rgba(37, 211, 102, 0.3);
-        }
-
-        .platform-btn.tele {
-            color: #0088cc;
-            border-color: rgba(0, 136, 204, 0.3);
-        }
-
-        .platform-btn.active.wa {
+        .platform-btn.wa.active {
             background: #25D366;
             color: white;
             border-color: #25D366;
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
         }
 
-        .platform-btn.active.tele {
+        .platform-btn.tele.active {
             background: #0088cc;
             color: white;
             border-color: #0088cc;
-            box-shadow: 0 6px 16px rgba(0, 136, 204, 0.3);
         }
 
         .btn-checkout {
@@ -479,62 +429,38 @@
             background: linear-gradient(135deg, #ff758c, #ff4d6d);
             color: white;
             border: none;
-            padding: 15px;
-            border-radius: 16px;
+            padding: 14px;
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
-            margin-top: 12px;
-            box-shadow: 0 8px 22px rgba(255, 117, 140, 0.35);
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            margin-top: 10px;
+            box-shadow: 0 6px 18px rgba(255, 117, 140, 0.3);
         }
 
-        .btn-checkout:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.45);
-        }
-
-        /* Footer */
         footer {
             text-align: center;
-            padding: 35px;
+            padding: 30px;
             background: white;
             color: var(--text-sub);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255, 227, 232, 0.8);
-            font-weight: 500;
         }
 
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 40px;
+                padding-top: 30px;
             }
-
             .hero-text h1 {
-                font-size: 2.1rem;
-            }
-
-            .hero-text p {
-                font-size: 0.95rem;
-            }
-
-            .floating-tag {
-                left: 50%;
-                transform: translateX(-50%);
-                white-space: nowrap;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
     <header>
         <div class="logo">
             <div class="logo-icon"><i class="fa-solid fa-store"></i></div>
@@ -542,7 +468,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
             <div class="hero-badge">
@@ -556,8 +481,8 @@
 
         <div class="hero-image-wrapper">
             <div class="hero-image-card">
-                <!-- Foto Karakter Yae Miko -->
-                <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko - Lyanju Store">
+                <!-- Gambar Yae Miko dari CDN Imgur (Bisa diakses publik tanpa diproteksi) -->
+                <img src="https://i.imgur.com/8Qe8T9c.jpg" alt="Yae Miko - Lyanju Store">
                 <div class="floating-tag">
                     <i class="fa-solid fa-bolt" style="color: #ffb703;"></i> Proses Cepat & Legal
                 </div>
@@ -565,7 +490,6 @@
         </div>
     </section>
 
-    <!-- Catalog Section -->
     <section class="catalog">
         <div class="section-header">
             <h2>Katalog Aplikasi</h2>
@@ -574,7 +498,6 @@
 
         <div class="products-grid">
 
-            <!-- Canva Pro (Best Seller) -->
             <div class="product-card">
                 <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
                 <div>
@@ -591,14 +514,13 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 1.000 <span>/ 1 Bulan</span></div>
+                    <div class="price-tag">Rp 1.000 <span>/ Bulan</span></div>
                     <button class="btn-order" onclick="openOrderModal('Canva Pro', [{'name': '1 Bulan', 'price': 'Rp 1.000'}, {'name': '1 Tahun', 'price': 'Rp 10.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <!-- CapCut Pro (Best Seller) -->
             <div class="product-card">
                 <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
                 <div>
@@ -615,14 +537,13 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 5.000 <span>/ Bulan</span></div>
-                    <button class="btn-order" onclick="openOrderModal('CapCut Pro', [{'name': '1 Bulan (Sharing)', 'price': 'Rp 5.000'}, {'name': '1 Bulan (Private)', 'price': 'Rp 12.000'}])">
+                    <div class="price-tag">Rp 21.000 <span>/ Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('CapCut Pro', [{'name': '1 Bulan (Sharing)', 'price': 'Rp 21.000'}, {'name': '1 Bulan (Private)', 'price': 'Rp 35.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <!-- Spotify Premium -->
             <div class="product-card">
                 <div>
                     <div class="product-header">
@@ -632,20 +553,19 @@
                         </div>
                     </div>
                     <ul class="product-features">
-                        <li><i class="fa-solid fa-check"></i> Bebas Iklan & Skip Lagu</li>
-                        <li><i class="fa-solid fa-check"></i> Download Offline Audio</li>
-                        <li><i class="fa-solid fa-check"></i> Plan Individual / Family</li>
+                        <li><i class="fa-solid fa-check"></i> Bebas Iklan & Skip Bebas</li>
+                        <li><i class="fa-solid fa-check"></i> Download Musik Offline</li>
+                        <li><i class="fa-solid fa-check"></i> Audio Kualitas Tinggi</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 8.000 <span>/ Bulan</span></div>
-                    <button class="btn-order" onclick="openOrderModal('Spotify Premium', [{'name': '1 Bulan Plan Plan Head', 'price': 'Rp 8.000'}, {'name': '2 Bulan Family Plan', 'price': 'Rp 15.000'}])">
+                    <div class="price-tag">Rp 18.000 - 20.000 <span>/ Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('Spotify Premium', [{'name': '1 Bulan Plan Individual', 'price': 'Rp 18.000'}, {'name': '1 Bulan Plan Family', 'price': 'Rp 20.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <!-- ChatGPT Plus -->
             <div class="product-card">
                 <div>
                     <div class="product-header">
@@ -655,20 +575,19 @@
                         </div>
                     </div>
                     <ul class="product-features">
-                        <li><i class="fa-solid fa-check"></i> Akses GPT-4o & DALL-E 3</li>
-                        <li><i class="fa-solid fa-check"></i> Respon Lebih Cepat</li>
-                        <li><i class="fa-solid fa-check"></i> Garansi Resmi</li>
+                        <li><i class="fa-solid fa-check"></i> Akses Model GPT-4o Tercepat</li>
+                        <li><i class="fa-solid fa-check"></i> Fitur DALL-E 3 & Data Analysis</li>
+                        <li><i class="fa-solid fa-check"></i> Tersedia Private & Sharing</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 20.000 <span>/ Bulan</span></div>
-                    <button class="btn-order" onclick="openOrderModal('ChatGPT Plus', [{'name': '1 Bulan (Sharing)', 'price': 'Rp 20.000'}, {'name': '1 Bulan (Private)', 'price': 'Rp 150.000'}])">
+                    <div class="price-tag">Rp 30.000 - 170.000 <span>/ Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('ChatGPT Plus', [{'name': '1 Bulan (Sharing)', 'price': 'Rp 30.000'}, {'name': '1 Bulan (Private)', 'price': 'Rp 170.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <!-- YouTube Premium -->
             <div class="product-card">
                 <div>
                     <div class="product-header">
@@ -678,20 +597,19 @@
                         </div>
                     </div>
                     <ul class="product-features">
-                        <li><i class="fa-solid fa-check"></i> Tanpa Iklan Sama Sekali</li>
-                        <li><i class="fa-solid fa-check"></i> Gratis YouTube Music</li>
-                        <li><i class="fa-solid fa-check"></i> PlayBackground Mode</li>
+                        <li><i class="fa-solid fa-check"></i> Nonton Video Tanpa Iklan</li>
+                        <li><i class="fa-solid fa-check"></i> Background Playback</li>
+                        <li><i class="fa-solid fa-check"></i> Termasuk YouTube Music</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 6.000 <span>/ Bulan</span></div>
-                    <button class="btn-order" onclick="openOrderModal('YouTube Premium', [{'name': '1 Bulan Indiv', 'price': 'Rp 6.000'}, {'name': '3 Bulan Indiv', 'price': 'Rp 15.000'}])">
+                    <div class="price-tag">Rp 5.000 <span>/ Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('YouTube Premium', [{'name': '1 Bulan Invite', 'price': 'Rp 5.000'}, {'name': '3 Bulan Indiv', 'price': 'Rp 15.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
             </div>
 
-            <!-- Netflix Premium -->
             <div class="product-card">
                 <div>
                     <div class="product-header">
@@ -701,14 +619,14 @@
                         </div>
                     </div>
                     <ul class="product-features">
-                        <li><i class="fa-solid fa-check"></i> Kualitas Ultra HD 4K</li>
-                        <li><i class="fa-solid fa-check"></i> Buka Semua Film/Series</li>
-                        <li><i class="fa-solid fa-check"></i> Kunci PIN Profile</li>
+                        <li><i class="fa-solid fa-check"></i> Kualitas Ultra HD / 4K</li>
+                        <li><i class="fa-solid fa-check"></i> Support Semua Perangkat</li>
+                        <li><i class="fa-solid fa-check"></i> Garansi Full 1 Bulan</li>
                     </ul>
                 </div>
                 <div>
-                    <div class="price-tag">Rp 25.000 <span>/ Bulan</span></div>
-                    <button class="btn-order" onclick="openOrderModal('Netflix Premium', [{'name': '1 Bulan (1 User 1 Device)', 'price': 'Rp 25.000'}, {'name': '1 Bulan (1 Profile 2 Device)', 'price': 'Rp 40.000'}])">
+                    <div class="price-tag">Rp 30.000 <span>/ Bulan</span></div>
+                    <button class="btn-order" onclick="openOrderModal('Netflix Premium', [{'name': '1 Bulan 1 User', 'price': 'Rp 30.000'}])">
                         <i class="fa-solid fa-cart-shopping"></i> Order Sekarang
                     </button>
                 </div>
@@ -717,7 +635,6 @@
         </div>
     </section>
 
-    <!-- Modal Popup Checkout -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-card">
             <button class="modal-close" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -727,9 +644,7 @@
             <form id="orderForm" onsubmit="handleCheckout(event)">
                 <div class="form-group">
                     <label for="packageSelect"><i class="fa-solid fa-box"></i> Pilih Paket / Durasi</label>
-                    <select id="packageSelect" class="form-control" required>
-                        <!-- Options filled via JS -->
-                    </select>
+                    <select id="packageSelect" class="form-control" required></select>
                 </div>
 
                 <div class="form-group">
@@ -751,19 +666,16 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Lyanju Store. All Rights Reserved. Powered with ❤️</p>
+        <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Handling -->
     <script>
         let selectedAppName = '';
         let selectedPlatform = 'wa';
 
-        // Ganti dengan nomor WhatsApp & username Telegram milikmu
-        const WA_NUMBER = "6281234567890"; // Contoh: 628xxx
-        const TELE_USERNAME = "lyanjustore"; // Username Telegram tanpa @
+        const WA_NUMBER = "6281234567890"; 
+        const TELE_USERNAME = "lyanjustore"; 
 
         function openOrderModal(appName, packages) {
             selectedAppName = appName;
@@ -820,7 +732,6 @@
             closeOrderModal();
         }
 
-        // Close modal when clicking overlay
         window.onclick = function(event) {
             const modal = document.getElementById('orderModal');
             if (event.target === modal) {
