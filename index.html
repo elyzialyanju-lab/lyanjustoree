@@ -1,404 +1,328 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyanju Store - Premium Apps</title>
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Lyanju Store | Premium Apps & Digital Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lyanju-pink': '#ffeef2',
+                        'lyanju-card': '#fff8fa',
+                        'lyanju-purple': '#d81b60',
+                        'lyanju-dark': '#4a2c35',
+                        'lyanju-accent': '#ff6b8b'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #fff2f5;
-            color: #5a3d46;
-            line-height: 1.6;
-        }
-
-        /* Header / Navbar */
-        header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #d81b60;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Hero / Sambutan Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 50px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-            flex-wrap: wrap-reverse;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
-            color: #c2185b;
-            margin-bottom: 15px;
-        }
-
-        .hero-text p {
-            font-size: 1.05rem;
-            color: #6d4c54;
-            margin-bottom: 25px;
-            background: #ffffff90;
-            padding: 15px;
-            border-left: 4px solid #f48fb1;
-            border-radius: 8px;
-        }
-
-        .hero-image {
-            flex: 1;
-            min-width: 280px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.2);
-            border: 4px solid #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image img:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Products Section */
-        .products-section {
-            padding: 40px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #ad1457;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .product-card {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(244, 143, 177, 0.15);
-            border: 1px solid #fce4ec;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(244, 143, 177, 0.3);
-        }
-
-        /* Badge Best Seller */
-        .badge-bestseller {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #ff4081, #d81b60);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(216, 27, 96, 0.3);
-        }
-
-        .product-card h3 {
-            color: #880e4f;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-list {
-            margin-bottom: 20px;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px dashed #f8bbd0;
-            font-size: 0.95rem;
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-        }
-
-        .price-amount {
-            font-weight: 600;
-            color: #d81b60;
-        }
-
-        /* Order Buttons */
-        .order-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: opacity 0.2s ease;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .btn-wa {
-            background-color: #25D366;
-        }
-
-        .btn-tele {
-            background-color: #0088cc;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #f8bbd0;
-            color: #880e4f;
-            margin-top: 50px;
-            font-weight: 600;
-        }
-
-        /* Responsive Adjustment */
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            .hero {
-                padding: 30px 5%;
-            }
-        }
+        body { background-color: #fff0f3; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .badge-glow { box-shadow: 0 0 15px rgba(216, 27, 96, 0.3); }
     </style>
 </head>
-<body>
+<body class="text-lyanju-dark relative min-h-screen">
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-store"></i> Lyanju Store
+    <header class="glass-nav sticky top-0 z-50 border-b border-pink-200/60 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-lyanju-purple rounded-2xl flex items-center justify-center text-white font-extrabold text-xl shadow-md">
+                    L
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-xl text-lyanju-purple leading-none">Lyanju Store</h1>
+                    <span class="text-[10px] tracking-wider text-pink-500 font-bold uppercase">PREMIUM APPS OFFICIAL</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="#beranda" class="text-lyanju-purple border-b-2 border-lyanju-purple pb-1">Beranda</a>
+                <a href="#katalog" class="text-gray-600 hover:text-lyanju-purple transition">Katalog APK</a>
+                <a href="#keunggulan" class="text-gray-600 hover:text-lyanju-purple transition">Keunggulan</a>
+                <a href="#faq" class="text-gray-600 hover:text-lyanju-purple transition">FAQ</a>
+            </nav>
+
+            <a href="https://wa.me/6285714752930" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-full text-xs flex items-center gap-2 shadow-md transition">
+                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Lyanju
+            </a>
         </div>
     </header>
 
-    <!-- Hero / Welcome Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Halo! Selamat Datang di Lyanju Store ✨</h1>
-            <p>
-                Cari aplikasi premium murah, legal, dan terpercaya? Kamu berada di tempat yang tepat! 
-                Lyanju Store siap melayani kebutuhan langganan digital kamu secara cepat, aman, dan tanpa ribet. 
-                Pilih aplikasi favoritmu di bawah ini dan langsung hubungi Lyanju ya! 🌸
+    <section id="beranda" class="max-w-6xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+            <div class="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 px-4 py-1.5 rounded-full text-xs font-bold text-lyanju-purple mb-6">
+                <i class="fa-solid fa-store"></i> Selamat Datang di Lyanju Store 🌸
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+                Penyedia <span class="text-lyanju-purple">Aplikasi Premium</span> Terlengkap & Murah!
+            </h1>
+            
+            <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+                Dapatkan akun Canva Pro, CapCut Pro, Spotify, Netflix, YouTube, dan ChatGPT Plus dengan harga super terjangkau, amanah, dan bergaransi penuh!
             </p>
+
+            <div class="bg-white/80 border-l-4 border-lyanju-purple p-4 rounded-r-2xl shadow-sm mb-8 flex gap-4 items-center">
+                <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-pink-300">
+                    <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold tracking-wider text-pink-500 uppercase block">PESAN SAMBUTAN LYANJU 🌸</span>
+                    <p class="text-xs text-gray-700 italic">"Halo semuanya! Saya Lyanju, siap membantu kamu mendapatkan akses APK premium tanpa iklan dengan harga bersahabat. Pilih aplikasimu dan hubungi saya kapan saja ya!"</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#katalog" class="bg-lyanju-purple hover:bg-pink-700 text-white font-bold px-6 py-3 rounded-2xl text-sm flex items-center gap-2 shadow-lg shadow-pink-300 transition">
+                    <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog APK
+                </a>
+                <a href="https://t.me/lyanjuajahh" target="_blank" class="bg-sky-100 hover:bg-sky-200 text-sky-600 font-bold px-6 py-3 rounded-2xl text-sm flex items-center gap-2 transition">
+                    <i class="fa-brands fa-telegram text-base"></i> Telegram Lyanju
+                </a>
+            </div>
         </div>
-        <div class="hero-image">
-            <!-- Foto Karakter Yae Miko -->
-            <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko - Lyanju Store">
-        </div>
-    </section>
 
-    <!-- Main Products Section -->
-    <section class="products-section">
-        <h2 class="section-title">Catalog Aplikasi Premium</h2>
-        
-        <div class="products-grid">
-
-            <!-- Canva (Best Seller) -->
-            <div class="product-card">
-                <span class="badge-bestseller">⭐ Best Seller</span>
-                <h3><i class="fa-solid fa-palette"></i> Canva Pro</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>1 Bulan</span>
-                        <span class="price-amount">Rp 1.000</span>
-                    </div>
+        <div class="relative flex justify-center">
+            <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-pink-100 max-w-sm w-full">
+                <div class="absolute -top-3 -right-3 bg-lyanju-purple text-white text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-md z-10">
+                    <i class="fa-solid fa-crown text-amber-300"></i> Maskot Yae Miko 🌸
                 </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20Canva%20Pro" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
+                
+                <img src="https://images.alphacoders.com/121/1218525.png" alt="Yae Miko" class="rounded-2xl w-full h-80 object-cover">
+                
+                <div class="absolute -bottom-5 -left-5 bg-white p-3 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-cyan-500 text-white rounded-xl flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <span class="bg-amber-400 text-black text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">BEST SELLER</span>
+                        <h4 class="text-xs font-bold text-gray-800">Canva Pro Premium</h4>
+                        <p class="text-[11px] text-lyanju-purple font-extrabold">Cuma Rp 1.000 <span class="text-[9px] font-normal text-gray-500">/bln</span></p>
+                    </div>
                 </div>
             </div>
-
-            <!-- CapCut (Best Seller) -->
-            <div class="product-card">
-                <span class="badge-bestseller">⭐ Best Seller</span>
-                <h3><i class="fa-solid fa-video"></i> CapCut Pro</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>1 Bulan</span>
-                        <span class="price-amount">Rp 21.000</span>
-                    </div>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20CapCut%20Pro" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
-                </div>
-            </div>
-
-            <!-- YouTube Premium -->
-            <div class="product-card">
-                <h3><i class="fa-brands fa-youtube"></i> YouTube Premium</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>Famplan (1 Bulan)</span>
-                        <span class="price-amount">Rp 5.000</span>
-                    </div>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20YouTube%20Premium" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
-                </div>
-            </div>
-
-            <!-- Spotify Premium -->
-            <div class="product-card">
-                <h3><i class="fa-brands fa-spotify"></i> Spotify Premium</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>Indplan (1 Bulan)</span>
-                        <span class="price-amount">Rp 20.000</span>
-                    </div>
-                    <div class="price-item">
-                        <span>Famplan (1 Bulan)</span>
-                        <span class="price-amount">Rp 18.000</span>
-                    </div>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20Spotify%20Premium" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
-                </div>
-            </div>
-
-            <!-- ChatGPT Plus -->
-            <div class="product-card">
-                <h3><i class="fa-solid fa-robot"></i> ChatGPT Plus</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>Sharing (1 Bulan)</span>
-                        <span class="price-amount">Rp 30.000</span>
-                    </div>
-                    <div class="price-item">
-                        <span>Private (1 Bulan)</span>
-                        <span class="price-amount">Rp 170.000</span>
-                    </div>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20ChatGPT%20Plus" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
-                </div>
-            </div>
-
-            <!-- Netflix -->
-            <div class="product-card">
-                <h3><i class="fa-solid fa-film"></i> Netflix</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>Sharing (1 Bulan)</span>
-                        <span class="price-amount">Rp 30.000</span>
-                    </div>
-                </div>
-                <div class="order-buttons">
-                    <a href="https://wa.me/6285714752930?text=Halo%20Lyanju,%20aku%20mau%20order%20Netflix" target="_blank" class="btn btn-wa">
-                        <i class="fa-brands fa-whatsapp"></i> WA
-                    </a>
-                    <a href="https://t.me/lyanjuajahh" target="_blank" class="btn btn-tele">
-                        <i class="fa-brands fa-telegram"></i> Tele
-                    </a>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
+    <section id="katalog" class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="text-xs font-bold text-lyanju-purple uppercase tracking-widest block mb-1">KATALOG LYANJU STORE</span>
+            <h2 class="text-3xl font-extrabold text-gray-900">Daftar Aplikasi Premium</h2>
+            <p class="text-xs text-gray-500 mt-2">Semua aplikasi resmi, siap pakai, dan harga terjangkau!</p>
+            
+            <div class="mt-6 relative">
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari aplikasi (misl: Canva, CapCut, Spotify, ChatGPT)..." class="w-full bg-white border border-pink-200 rounded-2xl py-3 px-11 text-xs outline-none focus:border-lyanju-purple shadow-sm">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400 text-sm"></i>
+            </div>
+        </div>
+
+        <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="canva pro">
+                <div>
+                    <span class="absolute top-4 right-4 bg-amber-400 text-black text-[10px] font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-fire"></i> BEST SELLER
+                    </span>
+                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Canva Pro</h3>
+                    <p class="text-xs text-gray-500 mb-4">1 Bulan Unlock Pro</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Full Fitur & Element Pro</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Desain Tanpa Batas</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xs text-gray-400 line-through">Rp 15.000</div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 1.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
+                    <button onclick="openOrderModal('Canva Pro', 'Rp 1.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="capcut pro">
+                <div>
+                    <span class="absolute top-4 right-4 bg-amber-400 text-black text-[10px] font-extrabold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-fire"></i> BEST SELLER
+                    </span>
+                    <div class="w-12 h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">CapCut Pro</h3>
+                    <p class="text-xs text-gray-500 mb-4">1 Bulan Unlock Pro</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Export Tanpa Watermark</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Unlock Semua Filter & Efek Pro</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xs text-gray-400 line-through">Rp 35.000</div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 21.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
+                    <button onclick="openOrderModal('CapCut Pro', 'Rp 21.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="youtube premium">
+                <div>
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">YouTube Premium</h3>
+                    <p class="text-xs text-gray-500 mb-4">Famplan 1 Bulan</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Tanpa Iklan & Play In Background</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Gratis Akses YouTube Music Pro</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 5.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
+                    <button onclick="openOrderModal('YouTube Premium (Famplan)', 'Rp 5.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="spotify premium">
+                <div>
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-brands fa-spotify"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Spotify Premium</h3>
+                    <p class="text-xs text-gray-500 mb-4">Indplan & Famplan</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Indplan (1b): <b>Rp 20.000</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Famplan (1b): <b>Rp 18.000</b></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 18.000 - 20.000</div>
+                    <button onclick="openOrderModal('Spotify Premium', 'Indplan (20k) / Famplan (18k)')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="chatgpt plus">
+                <div>
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">ChatGPT Plus</h3>
+                    <p class="text-xs text-gray-500 mb-4">Sharing & Private 1 Bulan</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Sharing (1b): <b>Rp 30.000</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Private (1b): <b>Rp 170.000</b></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 30.000 - 170.000</div>
+                    <button onclick="openOrderModal('ChatGPT Plus', 'Sharing (30k) / Private (170k)')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-3xl p-6 border border-pink-100 shadow-sm relative flex flex-col justify-between" data-name="netflix">
+                <div>
+                    <div class="w-12 h-12 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Netflix Premium</h3>
+                    <p class="text-xs text-gray-500 mb-4">Sharing 1 Bulan</p>
+                    <ul class="text-xs text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Kualitas Ultra HD 4K</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Garansi Full 1 Bulan</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold text-lyanju-purple mb-4">Rp 30.000 <span class="text-xs font-normal text-gray-500">/ 1b</span></div>
+                    <button onclick="openOrderModal('Netflix Premium (Sharing)', 'Rp 30.000 / 1b')" class="w-full bg-lyanju-purple hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-cart-shopping"></i> Order
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="orderModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 relative shadow-2xl border border-pink-100">
+            <button onclick="closeOrderModal()" class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 font-bold flex items-center justify-center text-sm">
+                ✕
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-pink-100 text-lyanju-purple rounded-2xl mx-auto flex items-center justify-center text-xl font-bold mb-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <h3 class="font-extrabold text-lg text-gray-900" id="modalAppName">Detail Order</h3>
+                <p class="text-xs text-lyanju-purple font-extrabold mt-1" id="modalAppPrice">Harga Produk</p>
+            </div>
+
+            <div class="space-y-3">
+                <a id="btnWaLink" href="#" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-2 transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WhatsApp
+                </a>
+                <a id="btnTeleLink" href="https://t.me/lyanjuajahh" target="_blank" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-2 transition">
+                    <i class="fa-brands fa-telegram text-lg"></i> Pesan via Telegram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-pink-100 py-8 text-center text-xs text-gray-500">
+        <p>© 2026 <b>Lyanju Store</b>. All Rights Reserved. Crafted with 🌸</p>
     </footer>
 
+    <script>
+        // Modal logic
+        function openOrderModal(appName, appPrice) {
+            document.getElementById('modalAppName').innerText = appName;
+            document.getElementById('modalAppPrice').innerText = appPrice;
+            
+            const waPhone = '6285714752930';
+            const waText = encodeURIComponent(`Halo Kak Lyanju, saya mau order APK Premium:\n\n📌 Produk: ${appName}\n💰 Harga: ${appPrice}\n\nMohon diproses ya kak!`);
+            
+            document.getElementById('btnWaLink').href = `https://wa.me/${waPhone}?text=${waText}`;
+            document.getElementById('orderModal').classList.remove('hidden');
+            document.getElementById('orderModal').classList.add('flex');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('flex');
+            document.getElementById('orderModal').classList.add('hidden');
+        }
+
+        // Search Filter logic
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                let name = card.getAttribute('data-name');
+                if (name.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
