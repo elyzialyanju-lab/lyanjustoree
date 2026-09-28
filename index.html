@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyanju Store - Premium Apps Official</title>
+    <title>Lyanju Store | Premium Apps & Digital Services</title>
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #ff758c;
-            --primary-hover: #ff4d6d;
-            --pink-bg: #fff5f7;
+            --primary: #e63956;
+            --primary-hover: #d02e49;
+            --pink-bg: #fdf5f6;
             --card-bg: #ffffff;
-            --text-main: #3d3438;
-            --text-sub: #8a7880;
-            --accent-purple: #c77dff;
-            --shadow-soft: 0 12px 32px rgba(255, 117, 140, 0.08);
-            --shadow-hover: 0 20px 40px rgba(255, 117, 140, 0.18);
+            --text-main: #2b1e23;
+            --text-sub: #6c5a62;
+            --soft-pink: #fbebee;
+            --border-color: #f7d2d9;
+            --shadow-soft: 0 10px 30px rgba(230, 57, 86, 0.08);
+            --shadow-hover: 0 18px 36px rgba(230, 57, 86, 0.15);
         }
 
         * {
@@ -30,174 +31,353 @@
 
         body {
             background-color: var(--pink-bg);
-            background-image: radial-gradient(circle at 10% 10%, rgba(255, 182, 193, 0.25) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(224, 170, 255, 0.2) 0%, transparent 40%);
-            background-attachment: fixed;
             color: var(--text-main);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Navbar */
+        /* Top Bar / Header Nav */
         header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 16px 8%;
+            background: #ffffff;
+            padding: 14px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 20px rgba(255, 117, 140, 0.05);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--primary);
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .logo-icon {
-            background: linear-gradient(135deg, #ff758c, #ff4d6d);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 14px;
+        .logo-box {
+            background: linear-gradient(135deg, #e63956, #ff5e78);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
-            box-shadow: 0 6px 16px rgba(255, 117, 140, 0.35);
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(230, 57, 86, 0.3);
+        }
+
+        .logo-text h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-wa-header {
+            background: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+            transition: transform 0.2s;
+        }
+
+        .btn-wa-header:hover {
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
+            padding: 45px 7% 60px;
+            max-width: 1300px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 8% 40px;
-            max-width: 1200px;
-            margin: 0 auto;
             gap: 40px;
         }
 
-        .hero-text {
-            flex: 1.2;
+        .hero-left {
+            flex: 1.15;
         }
 
-        .hero-badge {
+        .welcome-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--soft-pink);
             color: var(--primary);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 22px;
-            border: 1px solid rgba(255, 117, 140, 0.2);
-            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.08);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
         }
 
-        .hero-text h1 {
-            font-size: 2.5rem;
+        .hero-left h1 {
+            font-size: 3rem;
             font-weight: 800;
-            color: #2b1e23;
-            line-height: 1.25;
+            line-height: 1.15;
+            color: #1a1014;
             margin-bottom: 18px;
+            letter-spacing: -0.5px;
         }
 
-        .hero-text h1 span {
-            background: linear-gradient(135deg, #ff758c, #c77dff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-left h1 span {
+            color: var(--primary);
         }
 
-        .hero-text p {
+        .hero-left p.desc {
             color: var(--text-sub);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 25px;
+            max-width: 540px;
         }
 
-        /* Fixed Hero Image Area */
-        .hero-image-wrapper {
-            flex: 0.8;
+        /* Sambutan Box */
+        .sambutan-box {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+            max-width: 520px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .avatar-box {
+            background: var(--primary);
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .sambutan-content h4 {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sambutan-content p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-style: italic;
+            line-height: 1.45;
+        }
+
+        /* CTA Buttons */
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-katalog {
+            background: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 18px rgba(230, 57, 86, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary-katalog:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary-tele {
+            background: #ffffff;
+            color: #0088cc;
+            padding: 14px 26px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid #b3e5fc;
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary-tele:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Right / Image Card */
+        .hero-right {
+            flex: 0.85;
+            position: relative;
             display: flex;
             justify-content: center;
-            position: relative;
-            padding-bottom: 20px;
         }
 
-        .hero-image-card {
+        .image-card-frame {
             position: relative;
-            background: linear-gradient(135deg, #ffccd5 0%, #f3e8ff 100%);
+            background: #ffffff;
+            padding: 12px;
             border-radius: 28px;
-            padding: 10px;
-            box-shadow: var(--shadow-hover);
-            transition: transform 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
             width: 100%;
-            max-width: 280px;
+            max-width: 380px;
         }
 
-        .hero-image-card:hover {
-            transform: translateY(-5px);
+        .maskot-badge {
+            position: absolute;
+            top: 24px;
+            right: -10px;
+            background: #e67e22;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+            z-index: 10;
         }
 
-        .hero-image-card img {
+        .image-card-frame img {
             width: 100%;
-            height: 320px;
+            height: 380px;
             object-fit: cover;
             border-radius: 20px;
             display: block;
         }
 
-        .floating-tag {
+        .floating-promo-badge {
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 10px 18px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            bottom: -15px;
+            left: -20px;
+            background: #ffffff;
+            padding: 12px 18px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: #333;
-            white-space: nowrap;
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            z-index: 2;
+            gap: 12px;
+            border: 1px solid var(--border-color);
+            z-index: 10;
         }
 
-        /* Products Grid */
-        .catalog {
-            padding: 40px 8% 80px;
-            max-width: 1200px;
+        .promo-icon {
+            background: #0088cc;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .promo-text .tag {
+            background: #ffecb3;
+            color: #b78103;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .promo-text h5 {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .promo-text p {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Catalog Section */
+        .catalog-section {
+            padding: 60px 7% 90px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        .section-header {
+        .section-title {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .section-header h2 {
-            font-size: 2rem;
+        .section-title h2 {
+            font-size: 2.2rem;
             font-weight: 800;
-            color: #2b1e23;
+            color: var(--text-main);
         }
 
-        .section-header p {
+        .section-title p {
             color: var(--text-sub);
             font-size: 0.95rem;
             margin-top: 6px;
@@ -206,15 +386,15 @@
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 25px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 24px;
+            border-radius: 22px;
             padding: 24px;
+            border: 1px solid var(--border-color);
             box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(255, 227, 232, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -227,17 +407,16 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .bestseller-badge {
+        .bestseller-tag {
             position: absolute;
             top: -10px;
             right: 20px;
-            background: linear-gradient(135deg, #ff4d6d, #ff758c);
+            background: var(--primary);
             color: white;
             font-size: 0.7rem;
             font-weight: 800;
-            padding: 5px 14px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
         }
 
         .product-header {
@@ -248,21 +427,20 @@
         }
 
         .product-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #fff0f3, #f3e8ff);
+            width: 46px;
+            height: 46px;
+            background: var(--soft-pink);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
 
         .product-title h3 {
             font-size: 1.15rem;
             font-weight: 800;
-            color: #2b1e23;
         }
 
         .product-features {
@@ -281,7 +459,6 @@
 
         .product-features li i {
             color: #2ec4b6;
-            font-size: 0.8rem;
         }
 
         .price-tag {
@@ -293,13 +470,13 @@
 
         .price-tag span {
             font-size: 0.8rem;
-            font-weight: 600;
             color: var(--text-sub);
+            font-weight: 600;
         }
 
         .btn-order {
             width: 100%;
-            background: linear-gradient(135deg, #ff758c, #ff4d6d);
+            background: var(--primary);
             color: white;
             border: none;
             padding: 12px;
@@ -311,13 +488,11 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 6px 16px rgba(255, 117, 140, 0.25);
-            transition: all 0.25s ease;
+            transition: background 0.2s;
         }
 
         .btn-order:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.35);
+            background: var(--primary-hover);
         }
 
         /* Modal Overlay */
@@ -327,8 +502,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(43, 30, 35, 0.5);
-            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
             display: none;
             align-items: center;
             justify-content: center;
@@ -343,7 +518,6 @@
             max-width: 400px;
             padding: 28px;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .modal-close {
@@ -356,7 +530,6 @@
             height: 32px;
             border-radius: 50%;
             cursor: pointer;
-            color: var(--text-sub);
         }
 
         .modal-title {
@@ -385,11 +558,10 @@
         .form-control {
             width: 100%;
             padding: 12px 14px;
-            border: 1.5px solid #ffe3e8;
+            border: 1.5px solid var(--border-color);
             border-radius: 14px;
             font-size: 0.9rem;
             outline: none;
-            background: #fff8f9;
         }
 
         .platform-options {
@@ -426,7 +598,7 @@
 
         .btn-checkout {
             width: 100%;
-            background: linear-gradient(135deg, #ff758c, #ff4d6d);
+            background: var(--primary);
             color: white;
             border: none;
             padding: 14px;
@@ -435,7 +607,6 @@
             font-size: 0.95rem;
             cursor: pointer;
             margin-top: 10px;
-            box-shadow: 0 6px 18px rgba(255, 117, 140, 0.3);
         }
 
         footer {
@@ -444,54 +615,123 @@
             background: white;
             color: var(--text-sub);
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 227, 232, 0.8);
+            border-top: 1px solid var(--border-color);
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
             .hero {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 text-align: center;
                 padding-top: 30px;
             }
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero-left h1 {
+                font-size: 2.3rem;
+            }
+            .hero-left p.desc {
+                margin: 0 auto 25px;
+            }
+            .sambutan-box {
+                margin: 0 auto 30px;
+                text-align: left;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none; /* Disembunyikan pada layar HP/Tablet kecil */
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
-        <div class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-store"></i></div>
-            Lyanju Store
+        <div class="logo-container">
+            <div class="logo-box">
+                <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="logo-text">
+                <h2>Lyanju Store</h2>
+                <span>PREMIUM APPS OFFICIAL</span>
+            </div>
         </div>
+
+        <ul class="nav-links">
+            <li><a href="#beranda" class="active">Beranda</a></li>
+            <li><a href="#katalog">Katalog APK</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn-wa-header">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Lyanju
+        </a>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <div class="hero-badge">
-                <i class="fa-solid fa-sparkles"></i> Official Premium App Store
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-left">
+            <div class="welcome-badge">
+                <i class="fa-solid fa-house"></i> Selamat Datang di Lyanju Store <i class="fa-solid fa-house"></i>
             </div>
-            <h1>Nikmati Akses <span>APK Premium</span> Tanpa Batas</h1>
-            <p>
-                Selamat datang di Lyanju Store! Dapatkan aplikasi favoritmu seperti Canva Pro, CapCut, Spotify, dan ChatGPT Plus dengan harga termurah, aman, dan bergaransi penuh.
+
+            <h1>Penyedia Aplikasi Premium Terlengkap & Murah!</h1>
+
+            <p class="desc">
+                Dapatkan akun Canva Pro, CapCut Pro, Spotify, Netflix, YouTube, dan ChatGPT Plus dengan harga super terjangkau, amanah, dan bergaransi penuh!
             </p>
+
+            <!-- Pesan Sambutan Lyanju -->
+            <div class="sambutan-box">
+                <div class="avatar-box">
+                    <i class="fa-solid fa-comment-dots"></i>
+                </div>
+                <div class="sambutan-content">
+                    <h4>PESAN SAMBUTAN LYANJU <i class="fa-solid fa-house"></i></h4>
+                    <p>"Halo semuanya! Saya Lyanju, siap membantu kamu mendapatkan akses APK premium tanpa iklan dengan harga bersahabat. Pilih aplikasimu dan hubungi saya kapan saja ya!"</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="hero-buttons">
+                <a href="#katalog" class="btn-primary-katalog">
+                    <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog APK
+                </a>
+                <a href="https://t.me/lyanjustore" target="_blank" class="btn-secondary-tele">
+                    <i class="fa-brands fa-telegram"></i> Telegram Lyanju
+                </a>
+            </div>
         </div>
 
-        <div class="hero-image-wrapper">
-            <div class="hero-image-card">
-                <!-- Gambar Yae Miko dari CDN Imgur (Bisa diakses publik tanpa diproteksi) -->
-                <img src="https://i.imgur.com/8Qe8T9c.jpg" alt="Yae Miko - Lyanju Store">
-                <div class="floating-tag">
-                    <i class="fa-solid fa-bolt" style="color: #ffb703;"></i> Proses Cepat & Legal
+        <div class="hero-right">
+            <div class="image-card-frame">
+                <div class="maskot-badge">
+                    <i class="fa-solid fa-gem"></i> Maskot Yae Miko <i class="fa-solid fa-house"></i>
+                </div>
+                
+                <!-- Foto Maskot -->
+                <img src="https://i.imgur.com/8Qe8T9c.jpg" alt="Maskot Yae Miko">
+
+                <!-- Floating Promo Badge -->
+                <div class="floating-promo-badge">
+                    <div class="promo-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div class="promo-text">
+                        <span class="tag">BEST SELLER</span>
+                        <h5>Canva Pro Premium</h5>
+                        <p>Cuma Rp 1.000 / Bulan</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="catalog">
-        <div class="section-header">
+    <!-- Catalog Section -->
+    <section class="catalog-section" id="katalog">
+        <div class="section-title">
             <h2>Katalog Aplikasi</h2>
             <p>Pilih aplikasi impianmu dan pesan langsung dalam beberapa detik</p>
         </div>
@@ -499,7 +739,7 @@
         <div class="products-grid">
 
             <div class="product-card">
-                <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
+                <div class="bestseller-tag">BEST SELLER</div>
                 <div>
                     <div class="product-header">
                         <div class="product-icon"><i class="fa-solid fa-palette"></i></div>
@@ -522,7 +762,7 @@
             </div>
 
             <div class="product-card">
-                <div class="bestseller-badge"><i class="fa-solid fa-star"></i> BEST SELLER</div>
+                <div class="bestseller-tag">BEST SELLER</div>
                 <div>
                     <div class="product-header">
                         <div class="product-icon"><i class="fa-solid fa-video"></i></div>
@@ -635,6 +875,7 @@
         </div>
     </section>
 
+    <!-- Modal Overlay -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-card">
             <button class="modal-close" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -670,6 +911,7 @@
         <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
     </footer>
 
+    <!-- Script Handling Modal & Transaksi -->
     <script>
         let selectedAppName = '';
         let selectedPlatform = 'wa';
