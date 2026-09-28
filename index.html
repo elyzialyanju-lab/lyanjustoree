@@ -704,7 +704,7 @@
             
             variants.forEach(v => {
                 const opt = document.createElement('option');
-                opt.value = `${v.name} - ${v.price}`;
+                opt.value = `${v.name} (${v.price})`;
                 opt.innerText = `${v.name} (${v.price})`;
                 variantSelect.appendChild(opt);
             });
@@ -733,14 +733,15 @@
 
         function executeOrder() {
             const selectedVariant = document.getElementById('variantSelect').value;
+            const textMessage = `Halo kak, saya mau beli ${currentAppName} ${selectedVariant}, apakah ready?`;
             
             if (selectedPlatform === 'wa') {
                 const phone = '6285714752930';
-                const text = `Halo Lyanju Store, aku mau order *${currentAppName}*\nVarian: ${selectedVariant}`;
-                const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+                const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(textMessage)}`;
                 window.open(waUrl, '_blank');
             } else {
-                const teleUrl = `https://t.me/lyanjuajahh`;
+                const teleUser = 'lyanjuajahh';
+                const teleUrl = `https://t.me/${teleUser}?text=${encodeURIComponent(textMessage)}`;
                 window.open(teleUrl, '_blank');
             }
 
