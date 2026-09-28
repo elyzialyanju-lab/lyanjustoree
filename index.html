@@ -1,476 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyanju Store | Premium Digital Apps</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        yaepink: '#ffd1dc',
-                        yaesoft: '#fff0f3',
-                        yaedeep: '#ff85a2',
-                        yaepurple: '#9b5de5',
-                    },
-                    fontFamily: {
-                        poppins: ['Poppins', 'sans-serif'],
-                        fredoka: ['Fredoka', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff8f9;
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Sakura Animation */
-        .sakura-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            overflow: hidden;
-        }
-        .sakura {
-            position: absolute;
-            background: linear-gradient(135deg, #ffb7c5, #ffe3e8);
-            border-radius: 15px 0 15px 0;
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { top: -10%; transform: translateX(0) rotate(0deg); }
-            100% { top: 110%; transform: translateX(100px) rotate(360deg); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyanju Store | Premium Apps Official</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-pink-50/40 min-h-screen pb-10">
 
-    <!-- Sakura Petals -->
-    <div class="sakura-container" id="sakuraContainer"></div>
+  <!-- Header / Navbar -->
+  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-pink-100 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-pink-400 flex items-center justify-center text-white font-bold text-sm">LS</div>
+      <div>
+        <h1 class="text-pink-600 font-bold text-base leading-tight">Lyanju Store</h1>
+        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">PREMIUM APPS OFFICIAL</p>
+      </div>
+    </div>
+    <button class="text-pink-500 text-xl"><i class="fa-solid fa-bars"></i></button>
+  </header>
 
-    <!-- NAVBAR -->
-    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-yaepink/40 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3">
-                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Lyanju Store Logo" class="w-10 h-10 rounded-full border-2 border-yaedeep object-cover shadow-sm">
-                <span class="font-fredoka text-2xl font-bold bg-gradient-to-r from-yaedeep to-yaepurple bg-clip-text text-transparent">
-                    Lyanju Store 🌸
-                </span>
-            </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-700">
-                <a href="#katalog" class="hover:text-yaedeep transition">Katalog APK</a>
-                <a href="#keunggulan" class="hover:text-yaedeep transition">Keunggulan</a>
-                <a href="#faq" class="hover:text-yaedeep transition">FAQ</a>
-            </div>
-            <a href="#katalog" class="bg-gradient-to-r from-yaedeep to-pink-500 text-white font-fredoka px-5 py-2 rounded-full shadow-md hover:opacity-90 transition transform hover:scale-105">
-                Pesan Sekarang ✨
-            </a>
+  <!-- Container Produk -->
+  <main class="max-w-md mx-auto p-4 space-y-4">
+
+    <!-- Card Produk 1 -->
+    <div class="bg-white rounded-2xl p-4 shadow-sm border border-pink-100 relative">
+      <div class="flex items-start justify-between mb-2">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white text-xl">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-800 text-base">CapCut Pro</h3>
+            <span class="text-[11px] text-gray-500">1 Bulan Unlock Pro</span>
+          </div>
         </div>
-    </nav>
+        <span class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
+          <i class="fa-solid fa-fire text-amber-500 mr-1"></i>BEST SELLER
+        </span>
+      </div>
 
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden pt-8 pb-16 bg-gradient-to-b from-yaesoft via-pink-50 to-white">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            
-            <!-- Hero Text -->
-            <div class="z-10 text-center md:text-left space-y-4">
-                <div class="inline-flex items-center gap-2 bg-pink-100 border border-yaepink text-yaedeep px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold shadow-sm">
-                    <i class="fa-solid fa-bolt text-yellow-500"></i> Tempat Langganan APK Premium Termurah!
-                </div>
-                <h1 class="font-fredoka text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-                    Nikmati Akses <span class="bg-gradient-to-r from-yaedeep to-yaepurple bg-clip-text text-transparent">APK Premium</span> Tanpa Batas 🦊
-                </h1>
-                <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                    Halo dari Admin <b>Lyanju</b>! Sedia Netflix, Canva, Spotify, CapCut, dan ChatGPT Plus murah, aman, legal, dan bergaransi penuh.
-                </p>
+      <ul class="text-xs text-gray-600 space-y-1 my-3 pl-1">
+        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-pink-500 text-[10px]"></i> Export Tanpa Watermark</li>
+        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-pink-500 text-[10px]"></i> Unlock Semua Filter & Efek Pro</li>
+        <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-pink-500 text-[10px]"></i> Garansi Full 1 Bulan</li>
+      </ul>
 
-                <!-- Box Ucapan -->
-                <div class="p-4 bg-white/90 border-l-4 border-yaedeep rounded-r-2xl shadow-sm text-xs md:text-sm text-gray-700 space-y-1">
-                    <p class="font-bold text-yaedeep flex items-center gap-2">
-                        <i class="fa-solid fa-sparkles"></i> Pesan Sambutan Lyanju Store:
-                    </p>
-                    <p class="italic">"Pilih aplikasi favoritmu di bawah ya~ Proses cepat, anti ribet, dan pastinya ramah di kantong!"</p>
-                </div>
-
-                <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#katalog" class="bg-yaedeep text-white font-fredoka px-7 py-3 rounded-xl shadow-lg hover:bg-pink-600 transition flex items-center gap-2">
-                        <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog
-                    </a>
-                    <a href="https://wa.me/6285714752930" target="_blank" class="bg-green-500 text-white font-fredoka px-6 py-3 rounded-xl shadow-lg hover:bg-green-600 transition flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Chat Admin WA
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero Image (Yae Chibi Motion) -->
-            <div class="relative flex justify-center items-center">
-                <div class="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-yaepink to-purple-200 rounded-full filter blur-2xl opacity-60"></div>
-                <div class="relative z-10 text-center">
-                    <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Yae Miko Chibi" class="w-64 md:w-80 h-auto rounded-3xl shadow-2xl border-4 border-white animate-float object-cover">
-                    <div class="mt-3 inline-block bg-white/90 px-4 py-1.5 rounded-full shadow-md text-xs font-bold text-yaedeep border border-yaepink">
-                        ✨ Maskot Resmi Lyanju Store ✨
-                    </div>
-                </div>
-            </div>
-
+      <div class="flex items-center justify-between pt-2 border-t border-gray-100 mt-2">
+        <div>
+          <span class="text-[10px] text-gray-400 line-through block">Rp 45.000</span>
+          <span class="text-pink-600 font-bold text-base">Rp 21.000 <span class="text-[10px] font-normal text-gray-500">/ bln</span></span>
         </div>
-    </section>
-
-    <!-- BANNER VISUAL SECTION -->
-    <section class="max-w-6xl mx-auto px-4 my-8">
-        <div class="relative rounded-3xl overflow-hidden shadow-xl border-2 border-yaepink">
-            <img src="https://i.ibb.co/MfZ0fpt/1641273.jpg" alt="Yae Miko Banner" class="w-full h-48 md:h-64 object-cover object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
-                <div class="text-white">
-                    <h3 class="font-fredoka text-xl md:text-2xl font-bold">Lyanju Store Premium Digital Hub 🦊🌸</h3>
-                    <p class="text-xs md:text-sm text-pink-200">Garansi Penuh & CS Fast Response Setiap Hari!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KATALOG PRODUK -->
-    <section id="katalog" class="max-w-6xl mx-auto px-4 py-12">
-        <div class="text-center mb-8">
-            <h2 class="font-fredoka text-3xl md:text-4xl font-bold text-gray-800">
-                Katalog <span class="text-yaedeep">Aplikasi Premium</span>
-            </h2>
-            <p class="text-gray-500 text-sm mt-1">Pilih paket langganan aplikasi favoritmu dengan harga terbaik!</p>
-            
-            <!-- Category Filter -->
-            <div class="flex flex-wrap justify-center gap-2 mt-6">
-                <button onclick="filterCategory('all')" class="cat-btn active bg-yaedeep text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm hover:opacity-90 transition">Semua</button>
-                <button onclick="filterCategory('bestseller')" class="cat-btn bg-pink-100 text-yaedeep px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-yaepink transition">🔥 Best Seller</button>
-                <button onclick="filterCategory('design')" class="cat-btn bg-pink-100 text-yaedeep px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-yaepink transition">Desain & Edit</button>
-                <button onclick="filterCategory('stream')" class="cat-btn bg-pink-100 text-yaedeep px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-yaepink transition">Streaming</button>
-                <button onclick="filterCategory('ai')" class="cat-btn bg-pink-100 text-yaedeep px-4 py-1.5 rounded-full text-xs font-semibold hover:bg-yaepink transition">AI & Tools</button>
-            </div>
-        </div>
-
-        <!-- PRODUCT GRID -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productGrid">
-            
-            <!-- Canva Premium -->
-            <div class="product-card bestseller design bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5 relative">
-                    <span class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">BEST SELLER 🔥</span>
-                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">Canva Premium</h3>
-                    <p class="text-xs text-gray-500 mb-3">Akses semua element pro, font, & hapus background.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 1.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('Canva Premium', 'Rp 1.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- CapCut Pro -->
-            <div class="product-card bestseller design bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5 relative">
-                    <span class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">BEST SELLER 🔥</span>
-                    <div class="w-12 h-12 rounded-xl bg-gray-900 text-white flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-solid fa-video"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">CapCut Pro</h3>
-                    <p class="text-xs text-gray-500 mb-3">Fitur Pro, efek eksklusif, & tanpa watermark.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 21.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('CapCut Pro', 'Rp 21.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- YouTube Premium -->
-            <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">YouTube Premium</h3>
-                    <p class="text-xs text-gray-500 mb-3">Famplan. Bebas iklan + YT Music Background Play.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 5.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('YouTube Premium Famplan', 'Rp 5.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- Spotify Indplan -->
-            <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-brands fa-spotify"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">Spotify Indplan</h3>
-                    <p class="text-xs text-gray-500 mb-3">Plan Individual. Bebas lagu tanpa batas & offline.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 20.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('Spotify Premium Indplan', 'Rp 20.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- Spotify Famplan -->
-            <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-brands fa-spotify"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">Spotify Famplan</h3>
-                    <p class="text-xs text-gray-500 mb-3">Plan Family Member. Lebih hemat & murah.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 18.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('Spotify Premium Famplan', 'Rp 18.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- ChatGPT+ Sharing -->
-            <div class="product-card ai bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">ChatGPT+ Sharing</h3>
-                    <p class="text-xs text-gray-500 mb-3">Akses GPT-4o, DALL-E 3, & Upload file (Sharing).</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 30.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('ChatGPT Plus Sharing', 'Rp 30.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- ChatGPT+ Private -->
-            <div class="product-card ai bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-solid fa-user-shield"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">ChatGPT+ Private</h3>
-                    <p class="text-xs text-gray-500 mb-3">Akun milikmu sendiri, privat & bebas hambatan.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 170.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('ChatGPT Plus Private', 'Rp 170.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-            <!-- Netflix Sharing -->
-            <div class="product-card stream bg-white border border-yaepink rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col justify-between">
-                <div class="p-5">
-                    <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mb-3">
-                        <i class="fa-solid fa-film"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold text-gray-800">Netflix Sharing</h3>
-                    <p class="text-xs text-gray-500 mb-3">Nonton Ultra HD 4K, 1 Profil Sharing Anti-Limit.</p>
-                    <div class="text-yaedeep font-fredoka text-xl font-bold">
-                        Rp 30.000 <span class="text-xs text-gray-400 font-normal">/ bulan</span>
-                    </div>
-                </div>
-                <div class="p-4 bg-pink-50 border-t border-pink-100">
-                    <button onclick="openOrder('Netflix Premium Sharing', 'Rp 30.000 / Bulan')" class="w-full bg-yaedeep text-white font-fredoka py-2 rounded-xl hover:bg-pink-600 transition text-sm shadow">
-                        Beli Sekarang
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- KEUNGGULAN SECTION -->
-    <section id="keunggulan" class="bg-pink-50 py-12 border-y border-yaepink">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-8">
-                <h2 class="font-fredoka text-3xl font-bold text-gray-800">Kenapa Harus <span class="text-yaedeep">Lyanju Store</span>?</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-pink-100 text-center">
-                    <div class="w-14 h-14 bg-pink-100 text-yaedeep rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold">Proses Kilat</h3>
-                    <p class="text-xs text-gray-500 mt-2">Pesanan diproses langsung begitu pembayaran terkonfirmasi.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-pink-100 text-center">
-                    <div class="w-14 h-14 bg-pink-100 text-yaedeep rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold">Garansi Full</h3>
-                    <p class="text-xs text-gray-500 mt-2">Ada kendala akun? Admin siap bantu ganti atau perbaiki garansi.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-pink-100 text-center">
-                    <div class="w-14 h-14 bg-pink-100 text-yaedeep rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <h3 class="font-fredoka text-lg font-bold">Harga Pelajar</h3>
-                    <p class="text-xs text-gray-500 mt-2">Mulai dari Rp 1.000 saja, ramah banget buat kantong sekolah/kuliah.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="max-w-4xl mx-auto px-4 py-12">
-        <div class="text-center mb-8">
-            <h2 class="font-fredoka text-3xl font-bold text-gray-800">Pertanyaan Umum (FAQ) 🦊</h2>
-        </div>
-        <div class="space-y-4">
-            <div class="bg-white border border-yaepink rounded-xl p-4 shadow-sm">
-                <h4 class="font-bold text-gray-800">Gimana cara ordernya kak?</h4>
-                <p class="text-xs text-gray-600 mt-1">Pilih produk yang kamu mau, klik "Beli Sekarang", lalu kirim pesan otomatis ke WhatsApp atau Telegram Admin Lyanju!</p>
-            </div>
-            <div class="bg-white border border-yaepink rounded-xl p-4 shadow-sm">
-                <h4 class="font-bold text-gray-800">Apakah ada garansinya?</h4>
-                <p class="text-xs text-gray-600 mt-1">Tentu saja! Semua APK Premium di Lyanju Store dilengkapi garansi sesuai durasi langganan.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-white border-t border-yaepink py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
-            <div class="flex justify-center items-center gap-3">
-                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Footer Logo" class="w-8 h-8 rounded-full border border-yaedeep object-cover">
-                <span class="font-fredoka text-xl font-bold text-yaedeep">Lyanju Store</span>
-            </div>
-            <p class="text-xs text-gray-500">Toko APK Premium Terpercaya & Murah. Powered by Yae Miko Aesthetic Theme 🌸</p>
-            <div class="flex justify-center gap-4 text-sm font-semibold">
-                <a href="https://wa.me/6285714752930" target="_blank" class="text-green-600 hover:underline"><i class="fa-brands fa-whatsapp"></i> WA: +62 857-1475-2930</a>
-                <a href="https://t.me/lyanjuajahh" target="_blank" class="text-sky-500 hover:underline"><i class="fa-brands fa-telegram"></i> Telegram: @lyanjuajahh</a>
-            </div>
-            <p class="text-[10px] text-gray-400">© 2026 Lyanju Store. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- MODAL ORDER POPUP -->
-    <div id="orderModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border-2 border-yaepink relative transform transition-all">
-            <button onclick="closeOrder()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 font-bold text-lg">&times;</button>
-            <div class="text-center mb-4">
-                <img src="https://i.ibb.co/C31P3J4/1728722.jpg" alt="Yae Miko" class="w-16 h-16 rounded-full border-2 border-yaedeep mx-auto mb-2 animate-bounce object-cover">
-                <h3 class="font-fredoka text-xl font-bold text-gray-800">Form Pemesanan 🌸</h3>
-                <p class="text-xs text-gray-500">Lyanju Store - APK Premium</p>
-            </div>
-            <div class="space-y-3 bg-pink-50 p-4 rounded-xl border border-pink-100 text-xs">
-                <div class="flex justify-between">
-                    <span class="text-gray-500">Produk:</span>
-                    <span id="modalProduct" class="font-bold text-gray-800"></span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-gray-500">Harga:</span>
-                    <span id="modalPrice" class="font-bold text-yaedeep"></span>
-                </div>
-            </div>
-            <div class="mt-4 space-y-2">
-                <label class="text-xs font-semibold text-gray-700">Pilih Platform Pemesanan:</label>
-                <a id="btnWA" href="#" target="_blank" class="w-full bg-green-500 text-white font-fredoka py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow hover:bg-green-600 transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Pesan via WhatsApp
-                </a>
-                <a id="btnTele" href="#" target="_blank" class="w-full bg-sky-500 text-white font-fredoka py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow hover:bg-sky-600 transition">
-                    <i class="fa-brands fa-telegram text-lg"></i> Pesan via Telegram
-                </a>
-            </div>
-        </div>
+        <button onclick="openOrderModal('CapCut Pro 1 Bulan', '21.000')" class="bg-pink-500 hover:bg-pink-600 active:scale-95 text-white text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm shadow-pink-200">
+          <i class="fa-solid fa-cart-shopping text-xs"></i> Order
+        </button>
+      </div>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // Sakura Animation
-        const sakuraContainer = document.getElementById('sakuraContainer');
-        for (let i = 0; i < 20; i++) {
-            const sakura = document.createElement('div');
-            sakura.classList.add('sakura');
-            sakura.style.left = Math.random() * 100 + 'vw';
-            sakura.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            sakura.style.width = (Math.random() * 10 + 8) + 'px';
-            sakura.style.height = sakura.style.width;
-            sakuraContainer.appendChild(sakura);
-        }
+  </main>
 
-        // Category Filter
-        function filterCategory(cat) {
-            const cards = document.querySelectorAll('.product-card');
-            const btns = document.querySelectorAll('.cat-btn');
-            btns.forEach(btn => btn.classList.remove('bg-yaedeep', 'text-white'));
-            event.target.classList.add('bg-yaedeep', 'text-white');
-            cards.forEach(card => {
-                if (cat === 'all' || card.classList.contains(cat)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+  <!-- Modal Pilihan Order (Muncul Pas Dipencet) -->
+  <div id="orderModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all">
+    <div class="bg-white w-full max-w-sm rounded-t-2xl sm:rounded-2xl p-5 shadow-xl space-y-4 animate-in slide-in-from-bottom duration-200">
+      
+      <div class="flex items-center justify-between border-b pb-3">
+        <div>
+          <h3 class="font-bold text-gray-800 text-base" id="modalProductName">Nama Produk</h3>
+          <p class="text-xs text-pink-600 font-semibold" id="modalProductPrice">Rp 0</p>
+        </div>
+        <button onclick="closeOrderModal()" class="text-gray-400 hover:text-gray-600 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
-        // Modal Order
-        function openOrder(product, price) {
-            document.getElementById('modalProduct').innerText = product;
-            document.getElementById('modalPrice').innerText = price;
-            const message = encodeURIComponent(`Halo Admin Lyanju Store! 🌸\nSaya mau beli APK Premium:\n- Produk: ${product}\n- Harga: ${price}\n\nBisa minta detail pembayarannya? Terima kasih!`);
-            document.getElementById('btnWA').href = `https://wa.me/6285714752930?text=${message}`;
-            document.getElementById('btnTele').href = `https://t.me/lyanjuajahh`;
-            document.getElementById('orderModal').classList.remove('hidden');
-        }
+      <p class="text-xs text-gray-500">Pilih platform tujuan untuk melanjutkan pemesanan:</p>
 
-        function closeOrder() {
-            document.getElementById('orderModal').classList.add('hidden');
-        }
-    </script>
+      <div class="space-y-2.5">
+        <!-- Button WhatsApp -->
+        <a id="btnWA" href="#" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-semibold text-sm transition">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-brands fa-whatsapp text-xl text-emerald-600"></i>
+            <span>Order via WhatsApp</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </a>
+
+        <!-- Button Telegram -->
+        <a id="btnTele" href="#" target="_blank" class="flex items-center justify-between p-3 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-semibold text-sm transition">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-brands fa-telegram text-xl text-sky-500"></i>
+            <span>Order via Telegram</span>
+          </div>
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </a>
+      </div>
+
+      <button onclick="closeOrderModal()" class="w-full py-2 text-center text-xs font-semibold text-gray-400 hover:text-gray-600">
+        Batal
+      </button>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Logika Modal & Link Direct -->
+  <script>
+    // SESUAIKAN NOMOR WA DAN USERNAME TELEGRAM DI SINI:
+    const NO_WA = "628xxxxxxxxxx"; // Ganti pakai nomor WA (pake format 62)
+    const USER_TELE = "username_tele"; // Ganti pakai username Telegram tanpa @
+
+    function openOrderModal(productName, price) {
+      document.getElementById('modalProductName').innerText = productName;
+      document.getElementById('modalProductPrice').innerText = 'Rp ' + price;
+
+      const pesan = `Halo Lyanju Store, saya mau order *${productName}* harga Rp ${price}. Apakah masih ready?`;
+      const encodedPesan = encodeURIComponent(pesan);
+
+      // Set Href link WA & Telegram
+      document.getElementById('btnWA').href = `https://wa.me/${NO_WA}?text=${encodedPesan}`;
+      document.getElementById('btnTele').href = `https://t.me/${USER_TELE}?text=${encodedPesan}`;
+
+      // Tampilkan Modal
+      document.getElementById('orderModal').classList.remove('hidden');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.add('hidden');
+    }
+  </script>
 </body>
 </html>
