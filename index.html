@@ -657,7 +657,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .hero {
                 flex-direction: column;
@@ -755,8 +754,8 @@
                     <i class="fa-solid fa-gem"></i> Maskot Yae Miko <i class="fa-solid fa-house"></i>
                 </div>
                 
-                <!-- Foto Maskot Yae Miko dari Pinterest Kamu -->
-                <img src="https://i.pinimg.com/736x/21/df/b7/21dfb7324ef6e6df6b7eb09ae5882cd8.jpg" alt="Yae Miko Genshin Impact">
+                <!-- Gambar Yae Miko Tipe SVG Data URI (100% PASTI MUNCUL) -->
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='100%' height='100%'><rect width='400' height='400' fill='%23fce4ec'/><circle cx='200' cy='200' r='160' fill='%23f8bbd0'/><path d='M110,230 Q200,80 290,230 Q270,350 200,340 Q130,350 110,230 Z' fill='%23f48fb1'/><circle cx='200' cy='175' r='60' fill='%23fff0f5'/><path d='M130,170 Q145,100 200,105 Q255,100 270,170 Q240,150 200,155 Q160,150 130,170 Z' fill='%23e91e63'/><polygon points='120,130 90,70 150,110' fill='%23f48fb1'/><polygon points='280,130 310,70 250,110' fill='%23f48fb1'/><polygon points='120,130 100,80 140,115' fill='%23ffffff'/><polygon points='280,130 300,80 260,115' fill='%23ffffff'/><ellipse cx='178' cy='175' rx='7' ry='11' fill='%23880e4f'/><ellipse cx='222' cy='175' rx='7' ry='11' fill='%23880e4f'/><circle cx='180' cy='172' r='2.5' fill='%23ffffff'/><circle cx='224' cy='172' r='2.5' fill='%23ffffff'/><path d='M194,188 Q200,193 206,188' stroke='%23d81b60' stroke-width='2.5' fill='none' stroke-linecap='round'/><ellipse cx='162' cy='184' rx='9' ry='5' fill='%23ff80ab' opacity='0.6'/><ellipse cx='238' cy='184' rx='9' ry='5' fill='%23ff80ab' opacity='0.6'/><path d='M160,235 L240,235 L250,330 L150,330 Z' fill='%23ffffff'/><path d='M180,235 L220,235 L225,330 L175,330 Z' fill='%23c2185b'/><path d='M120,210 Q200,225 280,210' stroke='%23ffb7c5' stroke-width='8' fill='none'/><text x='50%' y='360' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23ad1457' text-anchor='middle'>✨ Yae Miko - Lyanju Store ✨</text></svg>" alt="Yae Miko Genshin Impact">
 
                 <!-- Floating Promo Badge -->
                 <div class="floating-promo-badge">
@@ -957,36 +956,31 @@
 
     <!-- Script Handling Sakura, Modal & Transaksi -->
     <script>
-        // Generator Efek Sakura Berguguran
         function createSakura() {
             const container = document.getElementById('sakuraContainer');
-            const petalCount = 25; // Jumlah kelopak sakura
+            const petalCount = 25;
 
             for (let i = 0; i < petalCount; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('sakura-petal');
                 
-                // Ukuran acak
-                const size = Math.random() * 12 + 8; // 8px - 20px
+                const size = Math.random() * 12 + 8;
                 petal.style.width = `${size}px`;
                 petal.style.height = `${size}px`;
                 
-                // Posisi & durasi acak
                 petal.style.left = `${Math.random() * 100}%`;
-                petal.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5s - 10s
+                petal.style.animationDuration = `${Math.random() * 5 + 5}s`;
                 petal.style.animationDelay = `${Math.random() * 5}s`;
 
                 container.appendChild(petal);
             }
         }
 
-        // Jalankan efek sakura saat halaman dimuat
         document.addEventListener('DOMContentLoaded', createSakura);
 
         let selectedAppName = '';
         let selectedPlatform = 'wa';
 
-        // Nomor WA & Username Tele Update
         const WA_NUMBER = "6285714752930"; 
         const TELE_USERNAME = "lyanjuajahh"; 
 
@@ -1029,7 +1023,7 @@
             event.preventDefault();
             const packageValue = document.getElementById('packageSelect').value;
 
-            const textMessage = `Halo Lyanju Store! Saya mau order premium app:\n\n` +
+            const textMessage = `Halo Lyanju! Saya mau order premium app:\n\n` +
                                 `📱 *Aplikasi:* ${selectedAppName}\n` +
                                 `📦 *Paket:* ${packageValue}\n\n` +
                                 `Mohon bantu proses pesanan saya ya, terima kasih! ✨`;
