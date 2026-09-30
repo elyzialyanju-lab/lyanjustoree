@@ -755,8 +755,8 @@
                     <i class="fa-solid fa-gem"></i> Maskot Yae Miko <i class="fa-solid fa-house"></i>
                 </div>
                 
-                <!-- Foto Maskot Yae Miko Genshin Impact (CDN yang stabil) -->
-                <img src="https://fastly.picsum.photos/id/1025/380/380.jpg?hmac=placeholder" id="yaeMikoImg" alt="Yae Miko Genshin Impact">
+                <!-- Foto Maskot Yae Miko dari Pinterest Kamu -->
+                <img src="https://i.pinimg.com/736x/21/df/b7/21dfb7324ef6e6df6b7eb09ae5882cd8.jpg" alt="Yae Miko Genshin Impact">
 
                 <!-- Floating Promo Badge -->
                 <div class="floating-promo-badge">
@@ -957,15 +957,6 @@
 
     <!-- Script Handling Sakura, Modal & Transaksi -->
     <script>
-        // Set gambar Yae Miko dari source yang terjamin tembus CORS
-        document.addEventListener('DOMContentLoaded', function() {
-            const yaeImg = document.getElementById('yaeMikoImg');
-            if (yaeImg) {
-                yaeImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Genshin_Impact_Yae_Miko_Cosplay.jpg/800px-Genshin_Impact_Yae_Miko_Cosplay.jpg';
-            }
-            createSakura();
-        });
-
         // Generator Efek Sakura Berguguran
         function createSakura() {
             const container = document.getElementById('sakuraContainer');
@@ -988,6 +979,9 @@
                 container.appendChild(petal);
             }
         }
+
+        // Jalankan efek sakura saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', createSakura);
 
         let selectedAppName = '';
         let selectedPlatform = 'wa';
