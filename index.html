@@ -398,6 +398,62 @@
             font-weight: 700;
         }
 
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us-section {
+            padding: 60px 7% 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .why-us-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .why-us-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-pink);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .why-us-content h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .why-us-content p {
+            font-size: 0.86rem;
+            color: var(--text-sub);
+            line-height: 1.55;
+        }
+
         /* Catalog Section */
         .catalog-section {
             padding: 60px 7% 90px;
@@ -534,7 +590,7 @@
             background: var(--primary-hover);
         }
 
-        /* --- FAQ SECTION --- */
+        /* FAQ Section */
         .faq-section {
             padding: 60px 7% 90px;
             max-width: 900px;
@@ -811,7 +867,7 @@
                 right: 10px;
             }
 
-            .catalog-section, .faq-section {
+            .why-us-section, .catalog-section, .faq-section {
                 padding: 50px 5% 60px;
             }
 
@@ -819,7 +875,7 @@
                 font-size: 1.75rem;
             }
 
-            .products-grid {
+            .why-us-grid, .products-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -844,6 +900,7 @@
 
         <ul class="nav-links">
             <li><a href="#beranda" class="active">Beranda</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
             <li><a href="#katalog">Katalog APK</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -868,7 +925,7 @@
             <h1>Penyedia Aplikasi Premium Terlengkap & Murah!</h1>
 
             <p class="desc">
-                Dapatkan akun Canva Pro, CapCut Pro, Spotify, Netflix, YouTube, dan ChatGPT Plus dengan harga super terjangkau, amanah, dan bergaransi penuh!
+                Dapatkan akses berbagai aplikasi premium favoritmu dengan harga super terjangkau, amanah, dan bergaransi penuh!
             </p>
 
             <!-- Pesan Sambutan Lyanju -->
@@ -909,6 +966,64 @@
                         <h5>Canva Pro Premium</h5>
                         <p>Cuma Rp 1.000 / Bulan</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us-section" id="keunggulan">
+        <div class="section-title">
+            <h2>Kenapa Harus Belanja di Lyanju Store?</h2>
+            <p>Alasan utama mengapa ribuan pelanggan setia memilih layanan kami</p>
+        </div>
+
+        <div class="why-us-grid">
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-tags"></i></div>
+                <div class="why-us-content">
+                    <h3>Harga Super Ramah Kantong</h3>
+                    <p>Dapatkan akses berbagai aplikasi premium favoritmu dengan harga paling terjangkau tanpa menguras dompet!</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="why-us-content">
+                    <h3>100% Amanah & Terpercaya</h3>
+                    <p>Keamanan data dan kenyamanan kamu adalah prioritas utama. Semua transaksi dijamin amanah serta mendukung penggunaan Rekber.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="why-us-content">
+                    <h3>Proses Cepat & Praktis</h3>
+                    <p>Gak perlu nunggu lama! Pesanan kamu akan diproses dalam 5–15 menit setelah pembayaran terkonfirmasi saat jam kerja.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <div class="why-us-content">
+                    <h3>Garansi Full & After-Sales</h3>
+                    <p>Setiap produk bergaransi ditanggung penuh sesuai durasi paket. Ada kendala? Tinggal chat admin, siap dibantu sampai tuntas!</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="why-us-content">
+                    <h3>Garansi Akun Official & Legal</h3>
+                    <p>Semua aplikasi dan sistem akun disediakan secara resmi dan aman digunakan untuk kebutuhan harian, sekolah, maupun pekerjaan.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="why-us-content">
+                    <h3>Pelayanan Ramah & Siap Membantu</h3>
+                    <p>Punya pertanyaan atau bingung pilih paket yang cocok? Admin Lyanju Store selalu siap melayani dengan ramah dan fast response!</p>
                 </div>
             </div>
         </div>
