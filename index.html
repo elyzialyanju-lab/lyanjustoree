@@ -34,6 +34,41 @@
             color: var(--text-main);
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Container & Animasi Sakura Berguguran */
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .sakura-petal {
+            position: absolute;
+            background: linear-gradient(135deg, #ffb7c5, #ff9ebb);
+            border-radius: 15px 0 15px 0;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0) rotate(0deg);
+                opacity: 0.9;
+            }
+            100% {
+                top: 105%;
+                transform: translateX(100px) rotate(360deg);
+                opacity: 0.2;
+            }
         }
 
         /* Top Bar / Header Nav */
@@ -100,6 +135,31 @@
 
         .nav-links a.active, .nav-links a:hover {
             color: var(--primary);
+        }
+
+        .header-action-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-tele-header {
+            background: #0088cc;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.25);
+            transition: transform 0.2s;
+        }
+
+        .btn-tele-header:hover {
+            transform: translateY(-2px);
         }
 
         .btn-wa-header {
@@ -241,27 +301,6 @@
 
         .btn-primary-katalog:hover {
             background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary-tele {
-            background: #ffffff;
-            color: #0088cc;
-            padding: 14px 26px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1.5px solid #b3e5fc;
-            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.08);
-            transition: all 0.25s ease;
-        }
-
-        .btn-secondary-tele:hover {
-            background: #f0f8ff;
             transform: translateY(-2px);
         }
 
@@ -646,6 +685,9 @@
 </head>
 <body>
 
+    <!-- Container Sakura Berguguran -->
+    <div class="sakura-container" id="sakuraContainer"></div>
+
     <!-- Header Navigation -->
     <header>
         <div class="logo-container">
@@ -665,9 +707,14 @@
             <li><a href="#faq">FAQ</a></li>
         </ul>
 
-        <a href="https://wa.me/6285714752930" target="_blank" class="btn-wa-header">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp Lyanju
-        </a>
+        <div class="header-action-btns">
+            <a href="https://t.me/lyanjuajahh" target="_blank" class="btn-tele-header">
+                <i class="fa-brands fa-telegram"></i> Telegram
+            </a>
+            <a href="https://wa.me/6285714752930" target="_blank" class="btn-wa-header">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Lyanju
+            </a>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -699,9 +746,6 @@
                 <a href="#katalog" class="btn-primary-katalog">
                     <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog APK
                 </a>
-                <a href="https://t.me/lyanjuajahh" target="_blank" class="btn-secondary-tele">
-                    <i class="fa-brands fa-telegram"></i> Telegram Lyanju
-                </a>
             </div>
         </div>
 
@@ -711,8 +755,8 @@
                     <i class="fa-solid fa-gem"></i> Maskot Yae Miko <i class="fa-solid fa-house"></i>
                 </div>
                 
-                <!-- Foto Maskot -->
-                <img src="https://i.imgur.com/8Qe8T9c.jpg" alt="Maskot Yae Miko">
+                <!-- Foto Maskot Yae Miko -->
+                <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=800&auto=format&fit=crop" alt="Maskot Yae Miko">
 
                 <!-- Floating Promo Badge -->
                 <div class="floating-promo-badge">
@@ -911,8 +955,34 @@
         <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
     </footer>
 
-    <!-- Script Handling Modal & Transaksi -->
+    <!-- Script Handling Sakura, Modal & Transaksi -->
     <script>
+        // Generator Efek Sakura Berguguran
+        function createSakura() {
+            const container = document.getElementById('sakuraContainer');
+            const petalCount = 25; // Jumlah kelopak sakura
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('sakura-petal');
+                
+                // Ukuran acak
+                const size = Math.random() * 12 + 8; // 8px - 20px
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                
+                // Posisi & durasi acak
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5s - 10s
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+
+                container.appendChild(petal);
+            }
+        }
+
+        // Jalankan efek sakura saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', createSakura);
+
         let selectedAppName = '';
         let selectedPlatform = 'wa';
 
