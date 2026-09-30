@@ -181,26 +181,64 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero Section dengan Live Video Background */
         .hero {
+            position: relative;
             padding: 45px 7% 60px;
-            max-width: 1300px;
+            max-width: 100%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 40px;
+            overflow: hidden;
+        }
+
+        /* Container Video Background */
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(2px); /* Blur tipis agar estetik */
+        }
+
+        /* Shader / Overlay Transparan Pink Putih */
+        .hero-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(253, 245, 246, 0.88) 0%, rgba(253, 245, 246, 0.75) 100%);
+            z-index: 2;
+        }
+
+        /* Content Konten Hero di atas Video & Shader */
+        .hero-left, .hero-right {
+            position: relative;
+            z-index: 3;
         }
 
         .hero-left {
             flex: 1.15;
+            max-width: 650px;
         }
 
         .welcome-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--soft-pink);
+            background: rgba(251, 235, 238, 0.9);
             color: var(--primary);
             padding: 7px 16px;
             border-radius: 20px;
@@ -208,6 +246,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
+            backdrop-filter: blur(4px);
         }
 
         .hero-left h1 {
@@ -233,7 +272,7 @@
 
         /* Sambutan Box */
         .sambutan-box {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.92);
             border: 1px solid var(--border-color);
             border-radius: 18px;
             padding: 16px 20px;
@@ -243,6 +282,7 @@
             margin-bottom: 30px;
             max-width: 520px;
             box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(6px);
         }
 
         .avatar-box {
@@ -314,7 +354,7 @@
 
         .image-card-frame {
             position: relative;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
             padding: 12px;
             border-radius: 28px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -398,103 +438,9 @@
             font-weight: 700;
         }
 
-        /* --- VIDEO BANNER SECTION --- */
-        .video-banner-section {
-            padding: 40px 7% 20px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .video-card-container {
-            position: relative;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 16px;
-            box-shadow: var(--shadow-soft);
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* --- WHY CHOOSE US SECTION --- */
-        .why-us-section {
-            padding: 60px 7% 60px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .why-us-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 24px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-soft);
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            transition: all 0.3s ease;
-        }
-
-        .why-us-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .why-us-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--soft-pink);
-            color: var(--primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .why-us-content h3 {
-            font-size: 1.05rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        .why-us-content p {
-            font-size: 0.86rem;
-            color: var(--text-sub);
-            line-height: 1.55;
-        }
-
         /* Catalog Section */
         .catalog-section {
-            padding: 40px 7% 40px;
+            padding: 60px 7% 40px;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -626,6 +572,62 @@
 
         .btn-order:hover {
             background: var(--primary-hover);
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us-section {
+            padding: 60px 7% 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .why-us-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .why-us-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-pink);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .why-us-content h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .why-us-content p {
+            font-size: 0.86rem;
+            color: var(--text-sub);
+            line-height: 1.55;
         }
 
         /* FAQ Section */
@@ -905,7 +907,7 @@
                 right: 10px;
             }
 
-            .why-us-section, .catalog-section, .faq-section, .video-banner-section {
+            .why-us-section, .catalog-section, .faq-section {
                 padding: 40px 5% 40px;
             }
 
@@ -953,8 +955,17 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section dengan Live Background Video & Shader -->
     <section class="hero" id="beranda">
+        <!-- Live Video Background -->
+        <div class="hero-video-bg">
+            <video autoplay loop muted playsinline poster="yaemiko.jpg">
+                <source src="yaebanner.mp4" type="video/mp4">
+            </video>
+        </div>
+        <!-- Shader / Transparency Overlay -->
+        <div class="hero-video-overlay"></div>
+
         <div class="hero-left">
             <div class="welcome-badge">
                 <i class="fa-solid fa-house"></i> Selamat Datang di Lyanju Store <i class="fa-solid fa-house"></i>
@@ -991,7 +1002,7 @@
                     <i class="fa-solid fa-gem"></i> Maskot Yae Miko <i class="fa-solid fa-house"></i>
                 </div>
                 
-                <!-- Gambar Yae Miko dari File Upload GitHub -->
+                <!-- Gambar Yae Miko -->
                 <img src="yaemiko.jpg" alt="Yae Miko Genshin Impact">
 
                 <!-- Floating Promo Badge -->
@@ -1009,19 +1020,7 @@
         </div>
     </section>
 
-    <!-- Banner Video Section -->
-    <section class="video-banner-section">
-        <div class="video-card-container">
-            <div class="video-wrapper">
-                <video controls autoplay loop muted poster="yaemiko.jpg">
-                    <source src="yaebanner.mp4" type="video/mp4">
-                    Browser kamu tidak mendukung pemutaran video banner.
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- Catalog Section (Sesuai Permintaan: Katalog Dulu) -->
+    <!-- Catalog Section -->
     <section class="catalog-section" id="katalog">
         <div class="section-title">
             <h2>Katalog Aplikasi</h2>
@@ -1167,7 +1166,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section (Sesuai Permintaan: Keunggulan Setelah Katalog) -->
+    <!-- Why Choose Us Section -->
     <section class="why-us-section" id="keunggulan">
         <div class="section-title">
             <h2>Kenapa Harus Belanja di Lyanju Store?</h2>
