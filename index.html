@@ -398,9 +398,47 @@
             font-weight: 700;
         }
 
+        /* --- VIDEO BANNER SECTION --- */
+        .video-banner-section {
+            padding: 40px 7% 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .video-card-container {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 16px;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* --- WHY CHOOSE US SECTION --- */
         .why-us-section {
-            padding: 60px 7% 40px;
+            padding: 60px 7% 60px;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -456,7 +494,7 @@
 
         /* Catalog Section */
         .catalog-section {
-            padding: 60px 7% 90px;
+            padding: 40px 7% 40px;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -867,8 +905,8 @@
                 right: 10px;
             }
 
-            .why-us-section, .catalog-section, .faq-section {
-                padding: 50px 5% 60px;
+            .why-us-section, .catalog-section, .faq-section, .video-banner-section {
+                padding: 40px 5% 40px;
             }
 
             .section-title h2 {
@@ -900,8 +938,8 @@
 
         <ul class="nav-links">
             <li><a href="#beranda" class="active">Beranda</a></li>
-            <li><a href="#keunggulan">Keunggulan</a></li>
             <li><a href="#katalog">Katalog APK</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
 
@@ -971,65 +1009,19 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-us-section" id="keunggulan">
-        <div class="section-title">
-            <h2>Kenapa Harus Belanja di Lyanju Store?</h2>
-            <p>Alasan utama mengapa ribuan pelanggan setia memilih layanan kami</p>
-        </div>
-
-        <div class="why-us-grid">
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-tags"></i></div>
-                <div class="why-us-content">
-                    <h3>Harga Super Ramah Kantong</h3>
-                    <p>Dapatkan akses berbagai aplikasi premium favoritmu dengan harga paling terjangkau tanpa menguras dompet!</p>
-                </div>
-            </div>
-
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="why-us-content">
-                    <h3>100% Amanah & Terpercaya</h3>
-                    <p>Keamanan data dan kenyamanan kamu adalah prioritas utama. Semua transaksi dijamin amanah serta mendukung penggunaan Rekber.</p>
-                </div>
-            </div>
-
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-bolt"></i></div>
-                <div class="why-us-content">
-                    <h3>Proses Cepat & Praktis</h3>
-                    <p>Gak perlu nunggu lama! Pesanan kamu akan diproses dalam 5–15 menit setelah pembayaran terkonfirmasi saat jam kerja.</p>
-                </div>
-            </div>
-
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-                <div class="why-us-content">
-                    <h3>Garansi Full & After-Sales</h3>
-                    <p>Setiap produk bergaransi ditanggung penuh sesuai durasi paket. Ada kendala? Tinggal chat admin, siap dibantu sampai tuntas!</p>
-                </div>
-            </div>
-
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="why-us-content">
-                    <h3>Garansi Akun Official & Legal</h3>
-                    <p>Semua aplikasi dan sistem akun disediakan secara resmi dan aman digunakan untuk kebutuhan harian, sekolah, maupun pekerjaan.</p>
-                </div>
-            </div>
-
-            <div class="why-us-card">
-                <div class="why-us-icon"><i class="fa-solid fa-headset"></i></div>
-                <div class="why-us-content">
-                    <h3>Pelayanan Ramah & Siap Membantu</h3>
-                    <p>Punya pertanyaan atau bingung pilih paket yang cocok? Admin Lyanju Store selalu siap melayani dengan ramah dan fast response!</p>
-                </div>
+    <!-- Banner Video Section -->
+    <section class="video-banner-section">
+        <div class="video-card-container">
+            <div class="video-wrapper">
+                <video controls autoplay loop muted poster="yaemiko.jpg">
+                    <source src="yaebanner.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung pemutaran video banner.
+                </video>
             </div>
         </div>
     </section>
 
-    <!-- Catalog Section -->
+    <!-- Catalog Section (Sesuai Permintaan: Katalog Dulu) -->
     <section class="catalog-section" id="katalog">
         <div class="section-title">
             <h2>Katalog Aplikasi</h2>
@@ -1172,6 +1164,64 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section (Sesuai Permintaan: Keunggulan Setelah Katalog) -->
+    <section class="why-us-section" id="keunggulan">
+        <div class="section-title">
+            <h2>Kenapa Harus Belanja di Lyanju Store?</h2>
+            <p>Alasan utama mengapa ribuan pelanggan setia memilih layanan kami</p>
+        </div>
+
+        <div class="why-us-grid">
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-tags"></i></div>
+                <div class="why-us-content">
+                    <h3>Harga Super Ramah Kantong</h3>
+                    <p>Dapatkan akses berbagai aplikasi premium favoritmu dengan harga paling terjangkau tanpa menguras dompet!</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="why-us-content">
+                    <h3>100% Amanah & Terpercaya</h3>
+                    <p>Keamanan data dan kenyamanan kamu adalah prioritas utama. Semua transaksi dijamin amanah serta mendukung penggunaan Rekber.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="why-us-content">
+                    <h3>Proses Cepat & Praktis</h3>
+                    <p>Gak perlu nunggu lama! Pesanan kamu akan diproses dalam 5–15 menit setelah pembayaran terkonfirmasi saat jam kerja.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <div class="why-us-content">
+                    <h3>Garansi Full & After-Sales</h3>
+                    <p>Setiap produk bergaransi ditanggung penuh sesuai durasi paket. Ada kendala? Tinggal chat admin, siap dibantu sampai tuntas!</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="why-us-content">
+                    <h3>Garansi Akun Official & Legal</h3>
+                    <p>Semua aplikasi dan sistem akun disediakan secara resmi dan aman digunakan untuk kebutuhan harian, sekolah, maupun pekerjaan.</p>
+                </div>
+            </div>
+
+            <div class="why-us-card">
+                <div class="why-us-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="why-us-content">
+                    <h3>Pelayanan Ramah & Siap Membantu</h3>
+                    <p>Punya pertanyaan atau bingung pilih paket yang cocok? Admin Lyanju Store selalu siap melayani dengan ramah dan fast response!</p>
+                </div>
+            </div>
         </div>
     </section>
 
