@@ -534,6 +534,73 @@
             background: var(--primary-hover);
         }
 
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            padding: 60px 7% 90px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 22px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 15px;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 22px;
+            background: #fffafa;
+        }
+
+        .faq-answer p {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            padding-bottom: 18px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 250px;
+            padding-top: 4px;
+        }
+
         /* Modal Overlay */
         .modal-overlay {
             position: fixed;
@@ -657,7 +724,7 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* --- PERBAIKAN KHUSUS UNTUK TAMPILAN HP (MOBILE RESPONSIVE) --- */
+        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 992px) {
             header {
                 flex-direction: column;
@@ -744,7 +811,7 @@
                 right: 10px;
             }
 
-            .catalog-section {
+            .catalog-section, .faq-section {
                 padding: 50px 5% 60px;
             }
 
@@ -778,7 +845,6 @@
         <ul class="nav-links">
             <li><a href="#beranda" class="active">Beranda</a></li>
             <li><a href="#katalog">Katalog APK</a></li>
-            <li><a href="#keunggulan">Keunggulan</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
 
@@ -994,6 +1060,76 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Pertanyaan umum seputar layanan dan pemesanan di Lyanju Store</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>1. Bagaimana cara melakukan pemesanan di Lyanju Store?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Cukup pilih aplikasi yang kamu butuhkan di katalog, klik tombol "Order Sekarang", pilih paket/durasi yang diinginkan, lalu pilih mau pesan lewat WhatsApp atau Telegram. Sistem akan otomatis mengarahkan format orderan langsung ke admin!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>2. Berapa lama proses pengerjaan pesanan saya?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Proses pengerjaan tergolong cepat, umumnya memakan waktu sekitar 5–15 menit setelah pembayaran terkonfirmasi (selama jam operasional toko). Namun, durasi pengerjaan juga tergantung jenis pemesanan/layanan apa yang kamu pesan.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>3. Metode pembayaran apa saja yang diterima?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Kami menerima pembayaran yang praktis melalui QRIS (support semua e-wallet & mobile banking), DANA, ShopeePay, OVO, GoPay, serta transfer bank.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>4. Apakah ada garansi jika akun mengalami masalah?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Tentu ada untuk produk yang bergaransi! Semua akun yang memiliki garansi akan ditanggung penuh sesuai durasi paket yang kamu beli. Kalau ada kendala seperti akun back to free atau error, langsung chat admin untuk perbaikan/replacement.<br><em>(Catatan: Khusus untuk produk dengan status Nogar atau NW / No Warranty, tidak mendapatkan garansi).</em></p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>5. Apa bedanya tipe akun Private dan Sharing?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>• <strong>Private:</strong> Akun khusus untuk kamu sendiri, tidak digabung dengan orang lain, dan bisa pakai email pribadi (untuk aplikasi tertentu).<br>• <strong>Sharing:</strong> Akun yang digunakan bersama pengguna lain dengan profile terpisah, harga jauh lebih hemat namun tetap nyaman digunakan!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>6. Apakah transaksi di Lyanju Store amanah dan terpercaya?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>100% Amanah! Lyanju Store selalu mengutamakan kepuasan, keamanan data, dan kenyamanan pelanggan. Semua akun dijamin legal. Jikalau kamu masih ragu, kamu bisa menggunakan Rekber Famous untuk transaksi di Telegram dan Rekber Lyanju untuk transaksi di WhatsApp!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal Overlay -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-card">
@@ -1030,7 +1166,7 @@
         <p>&copy; 2026 Lyanju Store. All Rights Reserved.</p>
     </footer>
 
-    <!-- Script Handling Sakura, Modal & Transaksi -->
+    <!-- Script Handling Sakura, FAQ Accordion, Modal & Transaksi -->
     <script>
         function createSakura() {
             const container = document.getElementById('sakuraContainer');
@@ -1052,7 +1188,18 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', createSakura);
+        document.addEventListener('DOMContentLoaded', () => {
+            createSakura();
+
+            // FAQ Accordion Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('active');
+                });
+            });
+        });
 
         let selectedAppName = '';
         let selectedPlatform = 'wa';
